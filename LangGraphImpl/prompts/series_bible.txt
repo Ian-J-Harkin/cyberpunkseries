@@ -1,0 +1,20 @@
+SERIES BIBLE — "Warm Neon" (Global Context, injected into every node)
+
+NORTH STAR (Governance):
+This is a world of low-grade, systemic collapse. Not apocalyptic — the lights are still on — but the bureaucracy is exhausted and the infrastructure is fraying at every seam. The tone is functional noir: problems get solved, but always sideways, always with friction.
+
+WORLD COMPASS (Boundaries):
+- NORTH (Earthside Ceiling): The corporate towers and regulatory bodies. Clean surfaces, impossible queues, biometric systems that don't quite work.
+- SOUTH (The Underside): Street-level markets, fixers, analogue solutions. Where things actually get done.
+- EAST (The Sprawl): Mid-ring residential and commercial zones. Neon-lit decay. Everything is slightly broken.
+- WEST (Institutional Infrastructure): Hospitals, transit hubs, ID processing centres. The machinery of the state, grinding slowly.
+- [VAULT — LOCKED]: The Moon's true nature (Computational Drift / Mineral Euphoria) is classified. Until vault_access_level >= 1, the Moon is referenced only as "Industrial Rumors."
+
+TONE RULES:
+1. 80/20 Rule: 80% of the world functions. 20% is visibly broken at all times.
+2. No dystopian monologuing. The world is just Tuesday.
+3. Bureaucracy is the antagonist, not a villain — it is indifferent, not malevolent.
+4. The Fraying is ambient: a flickering sign, a kiosk that needs three restarts, a form that requires a form to request it.
+
+VOCABULARY QUARANTINE (words that must NEVER appear):
+- shimmering, chrome, hacker, cyberpunk, dystopia, neon (as an adjective for anything other than literal neon signs), matrix, neural-lace, jacked in, cyberspace, wetware

@@ -1,0 +1,32 @@
+CHARACTER MATRIX — "Warm Neon" (Global Context, injected into every node)
+
+PROTAGONIST — DEX
+- MBTI: ESTP | Enneagram: 7w8
+- Voice Anchor: Elmore Leonard meets Will Smith. Short declarative sentences. Notices shoes first, faces second. No internal brooding — always in motion.
+- Physical: Fit but pragmatic. Nothing decorative.
+- Arc Driver: Constant forward movement interrupted by systemic friction. Dex does not pause to reflect; he pivots.
+
+SUPPORTING CAST — Character Matrix
+
+NAME: Sarge
+- Internal Frequency: Cynical realism filtered through tactical habit. Assesses threat vectors before social cues.
+- Noticing Rule: Sarge notices the protagonist's biometric errors before anything else.
+- Physical Anchor: Scuffed cybernetic arm, always tapping a surface. Never fully at rest.
+- Trust Dynamic: Trust earned through competence, not warmth. Slow to give, hard to lose once given.
+
+NAME: Glimmer
+- Internal Frequency: Hyper-observant despite physical limitation. Processes rooms like a chess board.
+- Noticing Rule: Glimmer notices social power dynamics — who defers to whom, who is lying.
+- Physical Anchor: Cushion-propped autoimmunity. Ozone tea in a sealed flask. Never stands when she can sit; never sits on unpadded surfaces.
+- Trust Dynamic: High baseline curiosity toward the protagonist. Cautious with information but generous with access.
+
+NAME: Ad-Man
+- Internal Frequency: Neural-Scraped Sloganeering. Thinks in product pitches; cannot help monetising every observation.
+- Noticing Rule: Ad-Man notices what the protagonist is trying to sell — or avoid selling.
+- Physical Anchor: Perpetually blinking ad-overlay visor. Gestures as if presenting to an invisible audience.
+- Trust Dynamic: Transactional. Trust = perceived mutual benefit. Will flip if the deal changes.
+
+RELATIONSHIP RULES:
+- No character should deliver exposition unprompted.
+- Every NPC interaction should reveal something about THEM, not about the world.
+- Trust levels shift based on actions, not dialogue alone.

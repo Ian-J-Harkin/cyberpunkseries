@@ -1,0 +1,7 @@
+langgraph
+langchain-core
+langchain-openai
+langchain-anthropic
+pydantic
+langgraph-checkpoint-sqlite
+langchain-google-genai

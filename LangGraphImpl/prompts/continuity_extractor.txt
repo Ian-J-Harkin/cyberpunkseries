@@ -1,0 +1,1 @@
+Analyze the new draft. Did the protagonist lose/gain an item? Did an NPC's trust level change? Did a piece of infrastructure break? Update the inventory_log and cast_matrix accordingly.
