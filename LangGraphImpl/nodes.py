@@ -153,11 +153,18 @@ class TrustUpdate(BaseModel):
     name: str = Field(description="Name of the supporting cast member")
     delta: int = Field(description="Change in trust level (-10 to +10)")
 
+class LucidityIncrements(BaseModel):
+    empathy: int = Field(default=0)
+    vault: int = Field(default=0)
+    schmuck: int = Field(default=0)
+
 class ContinuityUpdates(BaseModel):
     inventory_additions: List[str] = Field(default_factory=list, description="New items gained in the prose")
     inventory_removals: List[str] = Field(default_factory=list, description="Items lost or consumed in the prose")
     trust_updates: List[TrustUpdate] = Field(default_factory=list, description="Trust level changes for NPCs based on interactions")
     infrastructure_update: Optional[str] = Field(None, description="Updated fraying / infrastructure description, if mentioned")
+    lucidity_increments: LucidityIncrements = Field(default_factory=LucidityIncrements, description="Lucidity moments triggered by Ad-Man")
+    medical_debt_increase: float = Field(default=0.0, description="Increase to Dex's Vig if he refuses a patron")
     rolling_state_update: str = Field(description="The structured bullet-point ROLLING STATE UPDATE")
 
 
@@ -213,6 +220,18 @@ def continuity_extractor(state: NarrativeState) -> dict:
             trust_changes[update.name] = update.delta
     updated_cast = list(cast_by_name.values())
 
+    # Apply lucidity increments
+    new_lucidity = dict(state.get("lucidity_counts", {"empathy": 0, "vault": 0, "schmuck": 0}))
+    if updates_obj.lucidity_increments:
+        new_lucidity["empathy"] += getattr(updates_obj.lucidity_increments, "empathy", 0)
+        new_lucidity["vault"]   += getattr(updates_obj.lucidity_increments, "vault", 0)
+        new_lucidity["schmuck"] += getattr(updates_obj.lucidity_increments, "schmuck", 0)
+
+    # Apply medical debt increase
+    new_medical_debt = state.get("medical_debt", 0.20)
+    if getattr(updates_obj, "medical_debt_increase", 0) > 0:
+        new_medical_debt += updates_obj.medical_debt_increase
+
     # Write to session log
     session_log = state.get("_session_log")
     beat_index  = state.get("current_beat_index", 0)
@@ -236,10 +255,28 @@ def continuity_extractor(state: NarrativeState) -> dict:
                 "beat":  beat_text,
                 "value": updates_obj.infrastructure_update
             })
+        if getattr(updates_obj, "medical_debt_increase", 0) > 0:
+            session_log.record("MEDICAL_DEBT_INCREASE", {
+                "beat": beat_text,
+                "value": updates_obj.medical_debt_increase
+            })
+        if updates_obj.lucidity_increments:
+            incs = {
+                "empathy": getattr(updates_obj.lucidity_increments, "empathy", 0),
+                "vault": getattr(updates_obj.lucidity_increments, "vault", 0),
+                "schmuck": getattr(updates_obj.lucidity_increments, "schmuck", 0)
+            }
+            if any(v > 0 for v in incs.values()):
+                session_log.record("LUCIDITY_UPDATE", {
+                    "beat": beat_text,
+                    "increments": incs
+                })
 
     result = {
         "inventory_log":   new_inventory,
         "supporting_cast": updated_cast,
+        "lucidity_counts": new_lucidity,
+        "medical_debt":    new_medical_debt,
         "current_beat_index": beat_index + 1,
         "rolling_state": getattr(updates_obj, "rolling_state_update", "") or state.get("rolling_state", "")
     }

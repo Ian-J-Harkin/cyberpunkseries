@@ -46,6 +46,10 @@ class NarrativeState(TypedDict):
     # Material Continuity
     infrastructure: str       # Current "Fraying" level (80/20 Rule)
     inventory_log: List[str]  # Objects currently in play
+    
+    # Specific Character Mechanics
+    lucidity_counts: dict     # Tracks {"empathy": 0, "vault": 0, "schmuck": 0}
+    medical_debt: float       # Tracks the "Vig" (starts at 0.20 of the loan)
 
     # Development
     scene_beats: List[str]    # Structural plan for the current chapter

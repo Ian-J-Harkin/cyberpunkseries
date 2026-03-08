@@ -1,2 +1,5 @@
-Ensure the environment is defined by low-grade friction and bureaucratic hurdles. Set the 'Fraying Level' for the current location.
-Initialize the session by injecting the North Star and World Compass into the state.
+Ensure the environment is defined by low-grade friction and bureaucratic hurdles. 
+
+CRITICAL INSTRUCTION: You must read the "PHYSICS LAWS" document provided in your global context. Use the "80/20 Rule of Failure" defined in that document to accurately set the 'Fraying Level' for the current location. The infrastructure should always reflect this 20% friction.
+
+Initialize the session by injecting the North Star and World Compass into the state, alongside the calculated Infrastructure Fraying Level.

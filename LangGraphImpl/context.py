@@ -23,12 +23,14 @@ def load_global_context() -> str:
     bible   = load_prompt("series_bible.txt")
     matrix  = load_prompt("character_matrix.txt")
     rels    = load_prompt("relationship_matrix.txt")
-    
+    physics = load_prompt("physics_doc.txt")  # Add this line
+      
     return (
         "════════════════════════════════════════\n"
         "GLOBAL CONTEXT — NARRATIVE PHYSICS (SERIES BIBLE)\n"
         "════════════════════════════════════════\n"
-        f"{bible}\n\n"
+        f"SERIES BIBLE:\n{bible}\n\n"
+        f"PHYSICS LAWS:\n{physics}\n\n"
         "════════════════════════════════════════\n"
         "GLOBAL CONTEXT — CHARACTER STATE MACHINES\n"
         "════════════════════════════════════════\n"
@@ -41,7 +43,6 @@ def load_global_context() -> str:
         "NODE-SPECIFIC INSTRUCTIONS FOLLOW\n"
         "════════════════════════════════════════\n"
     )
-
 
 def build_system_prompt(node_prompt_file: str) -> str:
     """Combine global context + node-specific instructions into one system prompt."""

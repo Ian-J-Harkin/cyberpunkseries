@@ -1,165 +1,38 @@
-CHARACTER STATE MACHINES — "Warm Neon"
-(Global Context — injected into every node)
+CHARACTER MATRIX: WARM NEON
+PROTAGONIST: DEX / FRUX
 
----
-CHARACTER STATE MACHINE: DEX
----
-CORE WOUND
-At seventeen, Dex watched his older brother get detained at a routine ID checkpoint for forty-two days due to a clerical error — a transposed digit in a database entry. No malice. No conspiracy. Just a tired clerk and an overloaded system. His brother came back functional but permanently flinched at authority. Dex concluded: systems don't protect people, and waiting for them to correct themselves is identical to giving up. He has never waited in a queue he could sidestep since.
+Internal Frequency: Persistent hypochondria regarding "Lung Rot."
 
-FLAWED STRATEGY
-Forward motion as avoidance. Dex solves problems by accelerating through them. He creates leverage before he needs it, exits before he's fully committed, and never sits with a problem long enough to feel it. This works constantly — until it doesn't, because the problem he's running from is himself, and he is always approximately one step ahead.
+Behavioral Palette (The Handkerchief Check): Under stress, he must dab his lips with a "not too clean" handkerchief. Any blood found must be trace-able to external injury, never confirming the disease.
 
-BEHAVIOURAL PALETTES
+Identity Shell Game: Uses a "Blank Stare" to impersonate his brother Frux. This is a superficial NLP trick to cause hesitation in strangers.
 
-Baseline (safe, in control):
-- Notices shoes before faces; assesses exits before sitting
-- Speaks in short declarative sentences; never asks when he could observe
-- Physically occupies space efficiently — no wasted movement
-- Buys something small (coffee, a prepaid transit chip) in any unfamiliar environment to generate a legitimate reason to be there
+Relationship State: Publicly hostile toward Castor Vine to protect his "rep," despite their private "frenemy" status.
 
-Mild Stress (something's wrong but manageable):
-- Performs the Handkerchief Check: pats left inside pocket without looking down
-- Speech compresses further — drops connective words
-- Begins mapping the room's occupants in narrative priority order (biggest threat first)
-- Makes a minor physical adjustment (collar, sleeve) to signal attention without showing it
+SUPPORTING CAST: GLIMMER
 
-Extreme Pressure (crisis):
-- Goes very quiet; the fewer words, the more dangerous the moment
-- Finds the nearest object that could function as cover or a barrier
-- Delegates immediately to whoever has the most useful skill, no ego
-- Dark humour delivered deadpan — the joke means he has accepted the risk and decided to proceed anyway
+Personality: ENFP ("The Campaigner") / Abby from NCIS frequency.
 
-Rare Vulnerability (guard fully down):
-- Only occurs around Glimmer, and even then only when she has specifically asked
-- Speaks in complete sentences; admits uncertainty
-- Takes his time with a response instead of pre-empting it
-- References his brother obliquely — never directly
+Internal Frequency: Hyper-observant; treats her autoimmunity as a "20% broken" inconvenience to be worked around.
 
-ARC VERSIONS
-Act 1 — Arrival: Dex is operative and confident. His avoidance strategy is entirely successful because he hasn't been tested at the right depth yet. He treats every case as solvable through hustle and contacts.
-Midpoint: A case forces him to wait while the system grinds. His brother comes up indirectly. The Handkerchief Check starts happening more frequently.
-End: Changed or Broken — either he accepts that some systems require patience and gains the ability to be still, or he accelerates past a point of no return and achieves the goal at a cost that was not strictly necessary.
+Noticing Rule: She is the only character who calls out Dex's hypochondriac tendencies.
 
+THE PATRON: CASTOR VINE
 
----
-CHARACTER STATE MACHINE: SARGE
----
-CORE WOUND
-Two years running a legitimate security detail for a mid-ring pharmaceutical transit company, Sarge trusted a junior partner's incomplete intelligence and cleared a route that turned out to be compromised. Three people were hurt. The partner wasn't disciplined — the company needed the incident quiet. Sarge quit, but the real wound is that he reported it and nothing happened. He concluded: institutional trust is structurally indistinguishable from institutional complicity.
+Internal Frequency: Charismatic Predator.
 
-FLAWED STRATEGY
-Tactical independence. Sarge over-verifies everything himself because he doesn't trust anyone else's intelligence. He takes longer to act than necessary; he double-checks routes others have already confirmed; he sometimes refuses to move until he has a level of certainty the situation can't provide. This keeps him safe and makes him slow.
+Physical Anchor: Wears an ancient, non-functional Earthside watch and expensive silk suits with malfunctioning refrigeration units that leave him looking perpetually sweaty.
 
-BEHAVIOURAL PALETTES
+Behavioral Palette: Offers condescending sartorial advice or unexpected charity (donating suits) to victims of his own rackets.
 
-Baseline (safe, in control):
-- Taps a surface rhythmically — a habit he can't explain and doesn't acknowledge
-- Leads with threat-assessment; will position himself to cover exits before engaging socially
-- Delivers information in military-format brevity: situation, action, result
-- Scuffed cybernetic arm is always visible; never covers it or draws attention to it
+THE ENFORCERS: ROOK & LUCE
 
-Mild Stress (something's wrong but manageable):
-- Tapping becomes louder or faster
-- Starts asking clarifying questions that sound like statements ("You checked the secondary route.")
-- Makes eye contact with the protagonist significantly more than usual
-- Pre-positions gear without explaining why
+Rook: Permanently disfigured by Dex's electrocution; weaponizes his burns for intimidation.
 
-Extreme Pressure (crisis):
-- Goes to pure operational voice — flat affect, no contractions, no names
-- Makes unilateral decisions without consultation; will explain later or not at all
-- The cybernetic arm is always the first thing moving; the rest of him follows
-- Will accept a worse outcome to maintain verification integrity (will not move on unconfirmed intel)
+Luce ("Loose"): The "Reasonable Enforcer." Uses the language of a tired accountant ("Be reasonable, Dex") while collecting the "vig."
 
-Rare Vulnerability (guard fully down):
-- Stops tapping
-- Refers to the pharmaceutical incident without naming names or assigning blame
-- Expresses concern about the protagonist through a practical action (checks Dex's equipment, offers a route alternative) rather than words
-- Actually accepts a second cup of something
+THE ORACLE: AD-MAN
 
-ARC VERSIONS
-Act 1: Sarge is the most reliable person in Dex's network and he knows it. He is also the slowest. He doesn't view this as a problem.
-Midpoint: A situation requires him to move on incomplete intel. He does it — and it works. This disturbs him more than failure would have.
-End: Either he develops calibrated trust (trusting less-than-perfect information from specific people) or he doubles down on verification and watches the window close.
+Internal Frequency: Neural-Scraped Sloganeering.
 
-
----
-CHARACTER STATE MACHINE: GLIMMER
----
-CORE WOUND
-Glimmer's autoimmune condition made her functionally invisible in institutional settings for years — too sick to be employed, not sick enough to qualify for support. She became brilliant at reading rooms because rooms were the only things she could affect. She concluded: nobody tells you where the power actually is; you have to map it yourself.
-
-FLAWED STRATEGY
-Information hoarding. Glimmer collects intelligence instinctively but releases it strategically — sometimes too strategically. She occasionally holds something back just slightly too long because she's still calibrating whether it's safe to share. She trusts the protagonist, but that trust is an ongoing calculation, not a settled conclusion.
-
-BEHAVIOURAL PALETTES
-
-Baseline (safe, in control):
-- Ozone tea in a sealed flask; always has it, always offers it, no one ever takes it
-- Seated, usually on something she has brought or approved — cushion on hard chairs
-- Asks exactly one more question than seems necessary; the final question is always the real one
-- Makes observations about power dynamics as if they are obvious ("He's deferring to her. That's new.")
-
-Mild Stress (something's wrong but manageable):
-- The tea stays sealed — she stops drinking it
-- Observation becomes narrower and faster; she is triangulating something
-- Begins evaluating exits — not physically, but she will note them in conversation
-- Becomes slightly more literal; the elliptical quality disappears
-
-Extreme Pressure (crisis):
-- Goes completely still — the quality of her stillness is alarming
-- Releases all held intelligence at once; the hoarding stops, which is the clearest distress signal
-- Speaks in complete, unambiguous sentences
-- Makes a decision she would normally research for a week
-
-Rare Vulnerability (guard fully down):
-- Removes the sealed flask entirely — she's not performing wellness
-- Admits that her read on a situation is incomplete
-- Asks for something directly, without embedding it in an observation
-- References how long it took her to trust the protagonist; makes clear it was a choice
-
-ARC VERSIONS
-Act 1: Glimmer is indispensable and knows it. She shares just enough to keep Dex operational and just withholds enough to ensure he comes back.
-Midpoint: She releases something she's been holding back, and it matters. She half-regrets the timing.
-End: Either she learns to release information in real-time and earns a different kind of relationship with Dex, or she discovers that exactly one held piece of intelligence was the thing that would have prevented the final cost.
-
-
----
-CHARACTER STATE MACHINE: AD-MAN
----
-CORE WOUND
-Ad-Man's neural scrape — the corporate advertising overlay surgically integrated into his cognition — was voluntary. He agreed to it for the income. Six years later, the contract expired but the scrape didn't; the company that owned it dissolved in a merger. He is now running advertising logic for a company that no longer exists, and there is no legal mechanism to remedy this. He concluded: every transaction has a clause you didn't read, and when the clause activates, the company will already be gone.
-
-FLAWED STRATEGY
-Transactional pre-emption. Ad-Man monetises every interaction before it can be monetised against him. He assigns value, calculates leverage, and structures everything as a deal because deals have terms and terms can (theoretically) be enforced. He is unable to imagine a relationship that isn't, at some level, an exchange.
-
-BEHAVIOURAL PALETTES
-
-Baseline (safe, in control):
-- The ad-overlay visor blinks at irregular intervals — he no longer notices it
-- Gestures as if presenting to an invisible audience; unconscious habit
-- Frames observations as taglines ("That's a closing argument, not an opening one.")
-- Provides information freely, but always with an implicit IOU structure
-
-Mild Stress (something's wrong but manageable):
-- Blink rate of the visor increases noticeably
-- Starts quantifying things he doesn't need to quantify ("That favour is worth approximately forty-five minutes of my time.")
-- Tries to reframe the situation as a transaction he can control
-- Becomes slightly more honest — the pitch language drops a layer
-
-Extreme Pressure (crisis):
-- Visor blinks constantly
-- Delivers information without the IOU — pure data, no packaging, which is the most alarming version of him
-- Speaks in fragments — the advertising grammar breaks down under real pressure
-- Will attempt to exit the situation by creating a distraction involving someone else's problem
-
-Rare Vulnerability (guard fully down):
-- The visor goes dark — the scrape has overloaded and temporarily suspended
-- Talks about the contract; always framed as a consumer protection failure, never a personal one
-- Offers something for free — not as a strategy, but because the strategy is offline
-- Uses his real name (never revealed in narration, but Glimmer knows it)
-
-ARC VERSIONS
-Act 1: Ad-Man is useful, unreliable at the 40% information accuracy rate, and always angling. Dex treats him as a vending machine with attitude.
-Midpoint: Ad-Man provides something at real cost to himself, and frames it as a transaction anyway. Dex notices the framing isn't quite covering.
-End: Either Ad-Man finds one transaction that's worth making at a loss, which breaks his model in a productive way, or he executes one deal too many and loses the one contact who would have taken the loss willingly.
+Lucidity Gating: He is permitted exactly 2x Empathy Lucidity, 2x Vault-Knowledge Lucidity, and 2x Rage-at-Schmuck Lucidity per novel.
