@@ -18,6 +18,17 @@ class Protagonist(TypedDict):
     health_flags: List[str]   # Active conditions / modifiers
 
 
+class SceneBrief(TypedDict):
+    act_position: str
+    previous_scene_summary: str
+    scene_plot_function: str
+    new_state_goal: str
+    character_knowledge: str
+    character_emotional_states: str
+    physical_status: str
+    health_flags: List[str]
+
+
 class NarrativeState(TypedDict):
     """The Continuity Log — Central repository of truth.
     
@@ -39,6 +50,8 @@ class NarrativeState(TypedDict):
     # Development
     scene_beats: List[str]    # Structural plan for the current chapter
     current_beat_index: int   # Tracks which beat is being drafted
+    scene_brief: SceneBrief
+    rolling_state: str
     manuscript: str           # The cumulative prose generated
 
     # Vault

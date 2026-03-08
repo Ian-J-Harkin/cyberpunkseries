@@ -123,12 +123,19 @@ def persona_drafter(state: NarrativeState) -> dict:
 
     compass_context = json.dumps(state.get("boundaries", {}), indent=2)
     cast_context    = json.dumps(state.get("supporting_cast", []), indent=2)
+    scene_brief     = state.get("scene_brief", {})
 
     messages = [
         SystemMessage(content=system_prompt),
         HumanMessage(
             content=(
                 f"Current Beat: {current_beat}\n\n"
+                f"Scene Brief:\n"
+                f"- Act Position: {scene_brief.get('act_position', 'Unknown')}\n"
+                f"- Plot Function: {scene_brief.get('scene_plot_function', 'Unknown')}\n"
+                f"- New State Goal: {scene_brief.get('new_state_goal', 'Unknown')}\n"
+                f"- Char Knowledge: {scene_brief.get('character_knowledge', 'Unknown')}\n"
+                f"- Char Emotions: {scene_brief.get('character_emotional_states', 'Unknown')}\n\n"
                 f"World Compass (boundaries):\n{compass_context}\n\n"
                 f"Supporting Cast:\n{cast_context}"
             )
@@ -151,6 +158,7 @@ class ContinuityUpdates(BaseModel):
     inventory_removals: List[str] = Field(default_factory=list, description="Items lost or consumed in the prose")
     trust_updates: List[TrustUpdate] = Field(default_factory=list, description="Trust level changes for NPCs based on interactions")
     infrastructure_update: Optional[str] = Field(None, description="Updated fraying / infrastructure description, if mentioned")
+    rolling_state_update: str = Field(description="The structured bullet-point ROLLING STATE UPDATE")
 
 
 # ── Node D: Continuity Extractor ──────────────────────────────────────────────
@@ -165,9 +173,11 @@ def continuity_extractor(state: NarrativeState) -> dict:
     latest_prose    = state.get("manuscript", "")
     current_inv     = state.get("inventory_log", [])
     current_cast    = state.get("supporting_cast", [])
+    current_rolling = state.get("rolling_state", "No rolling state yet.")
 
     instruction = (
-        "Analyze the latest prose excerpt and extract structured continuity updates.\n\n"
+        "Analyze the latest prose excerpt and extract structured continuity updates AND a rolling state update.\n\n"
+        f"Previous Rolling State:\n{current_rolling}\n\n"
         f"Current inventory: {json.dumps(current_inv)}\n"
         f"Current cast: {json.dumps(current_cast)}\n\n"
         f"Latest prose (last 2000 chars):\n{latest_prose[-2000:]}"
@@ -230,7 +240,8 @@ def continuity_extractor(state: NarrativeState) -> dict:
     result = {
         "inventory_log":   new_inventory,
         "supporting_cast": updated_cast,
-        "current_beat_index": beat_index + 1
+        "current_beat_index": beat_index + 1,
+        "rolling_state": getattr(updates_obj, "rolling_state_update", "") or state.get("rolling_state", "")
     }
     if updates_obj.infrastructure_update:
         result["infrastructure"] = updates_obj.infrastructure_update

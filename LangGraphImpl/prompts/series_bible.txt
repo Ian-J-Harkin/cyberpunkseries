@@ -1,20 +1,53 @@
-SERIES BIBLE — "Warm Neon" (Global Context, injected into every node)
+NARRATIVE PHYSICS DOCUMENT — "Warm Neon"
+(Global Context — injected into every node)
 
-NORTH STAR (Governance):
-This is a world of low-grade, systemic collapse. Not apocalyptic — the lights are still on — but the bureaucracy is exhausted and the infrastructure is fraying at every seam. The tone is functional noir: problems get solved, but always sideways, always with friction.
+---
+CAUSALITY LAWS
+---
+1. Every obstacle Dex overcomes must be solved using a skill, contact, or piece of knowledge established before the obstacle appears. No pulling solutions from nowhere.
+2. Bureaucracy always slows progress. Every institutional interaction introduces at least one procedural delay, misfiled record, or system error. The delay is never malicious — the system is simply exhausted.
+3. Information travels slowly and degrades. A fact known in the Sprawl takes at least one scene to reach the Institutional West, and arrives distorted. Communications lag is a physical law.
+4. Every physical resource Dex spends (Social Credit, Physical Health, Cash) must leave a traceable consequence. Bribed clerks remember. Cashed-out favours create debts.
+5. Consequences propagate forward. If something goes wrong in a scene, it must surface — in some form — within the next three scenes. Nothing disappears.
 
-WORLD COMPASS (Boundaries):
-- NORTH (Earthside Ceiling): The corporate towers and regulatory bodies. Clean surfaces, impossible queues, biometric systems that don't quite work.
-- SOUTH (The Underside): Street-level markets, fixers, analogue solutions. Where things actually get done.
-- EAST (The Sprawl): Mid-ring residential and commercial zones. Neon-lit decay. Everything is slightly broken.
-- WEST (Institutional Infrastructure): Hospitals, transit hubs, ID processing centres. The machinery of the state, grinding slowly.
-- [VAULT — LOCKED]: The Moon's true nature (Computational Drift / Mineral Euphoria) is classified. Until vault_access_level >= 1, the Moon is referenced only as "Industrial Rumors."
+---
+RESOURCE & STAKES SYSTEM
+---
+SOCIAL CREDIT
+- What it is: Dex's reputation and relationship capital across the Sprawl.
+- How spent: Calling in favours, skipping queues, getting access to restricted zones.
+- How replenished: Completing jobs cleanly, helping NPCs with no strings attached.
+- When exhausted: NPCs start refusing requests or charging cash instead.
 
-TONE RULES:
-1. 80/20 Rule: 80% of the world functions. 20% is visibly broken at all times.
-2. No dystopian monologuing. The world is just Tuesday.
-3. Bureaucracy is the antagonist, not a villain — it is indifferent, not malevolent.
-4. The Fraying is ambient: a flickering sign, a kiosk that needs three restarts, a form that requires a form to request it.
+PHYSICAL HEALTH
+- What it is: Dex's functional capacity. Not tracked as a number — tracked as narrative flags (lung-rot flare-up, bruised ribs, etc.).
+- How spent: Combat, extended exertion in the acid-rain zones, unrest suppressant exposure.
+- How replenished: Rest (which costs time), Glimmer's medical access (which costs trust).
+- When exhausted: Dex moves to the Extreme Pressure behavioural palette regardless of other conditions.
 
-VOCABULARY QUARANTINE (words that must NEVER appear):
-- shimmering, chrome, hacker, cyberpunk, dystopia, neon (as an adjective for anything other than literal neon signs), matrix, neural-lace, jacked in, cyberspace, wetware
+OPERATIONAL TIME
+- What it is: The deadline pressure on the current case.
+- How spent: Every bureaucratic delay, every wrong turn, every scene where nothing advances.
+- How replenished: Never. Time always runs forward.
+- When exhausted: The secondary harm to an NPC that Dex was trying to prevent becomes permanent.
+
+---
+INFORMATION ECONOMY
+---
+- Characters may only act on information they explicitly possess. No lucky guesses unless established as a skill.
+- The Vault Rule: The Moon's true nature (Computational Drift / Mineral Euphoria) is classified. Until `vault_access_level >= 1`, Dex refers to it only as "Industrial Rumors." No other character is to reference it directly.
+- Ad-Man's information is 40% accurate. His data is monetised twice before it reaches Dex — always treat as a lead, never as a fact.
+- Glimmer's assessments of social dynamics are the most reliable intelligence in the network. She is rarely wrong, but she only tells Dex what she has already concluded — never speculation.
+- Sarge processes threat intelligence accurately but filters it through a personal risk calculus. He shares information only when he calculates it benefits their joint survival odds.
+
+---
+ESCALATION RULE
+---
+Every scene in which Dex fails to advance his goal must end with the city's systemic pressure increasing by one increment. Failing to reach the Records Office means the clearance queue resets. Losing the contact means the backup contact is now also compromised. Delay is never neutral — the world gets harder while Dex stands still.
+
+---
+TONAL PHYSICS
+---
+1. The 80/20 Rule: 80% of the world is functional. 20% is visibly, specifically broken at all times. A broken payment terminal, a queue held up by one missing form, a transit line delayed by maintenance drones that never arrive. Decay is ambient, not dramatic.
+2. No internal monologue. Dex's emotional state is always expressed through physical action and object-noticing. He does not pause to feel — he moves, checks, adjusts, and the reader infers from those actions.
+3. Bureaucracy is the environment, not the villain. The clerk is not cruel; the form is not sinister. The system is simply too tired and too old to work properly, and nobody is coming to fix it.

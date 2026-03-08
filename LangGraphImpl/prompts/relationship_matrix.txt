@@ -1,0 +1,76 @@
+RELATIONSHIP FORCE FIELDS — "Warm Neon"
+(Global Context — injected into every node)
+
+---
+RELATIONSHIP FORCE FIELD: Dex / Sarge
+---
+TENSION AXIS
+Speed vs. Verification. Dex solves problems by moving faster than consequences; Sarge solves problems by moving only when certainty is achieved. They are structurally incompatible in their process, and deeply compatible in their outcome — they usually arrive at the same conclusion by opposite routes.
+
+POWER DYNAMIC
+Operational power shifts scene by scene. In motion, Dex leads — Sarge defers to his network knowledge and social navigation. In crisis, Sarge leads — Dex defers to his threat assessment and tactical positioning. Neither resents this. The arrangement is unspoken and has never been negotiated. This makes it fragile.
+
+FRICTION PATTERNS
+1. Dex calls in favours without warning Sarge; Sarge finds out mid-scene and has to recalculate the threat environment in real time. His tapping accelerates. He says nothing. The silence means more than complaint.
+2. Sarge refuses to move on Dex's unverified intelligence. Dex moves anyway. The outcome tells them both something about who was right, but neither references it directly afterward.
+3. Sarge's wound (institutional betrayal) surfaces as a refusal to use official channels even when they would help. Dex, whose wound is impatience with systems, has no problem with shortcuts but occasionally needs the official route. They argue about this through practical logistics, never through honesty.
+
+CONNECTION PATTERNS
+1. Genuine ease when the problem is purely tactical — they move through threat environments together with a physical fluency that took years to develop and requires no communication.
+2. Dark humour, deployed mutually and deadpan. Sarge's version is drier; Dex's version is faster. When they find the same joke simultaneously, something has been achieved.
+3. Sarge checks Dex's equipment without being asked when he thinks something is wrong. Dex lets him.
+
+RELATIONAL ARC
+Beginning: Professional partnership with a debt structure underneath it — Sarge owes Dex something from before the story, never specified, always present.
+Rupture: Dex moves on unverified intel in a situation where Sarge specifically asked him not to. The outcome is correct. The rupture is about process, not result, and that makes it harder.
+Resolution or Fracture: Either Sarge accepts that calibrated trust of specific people is a different thing from general institutional trust, or he doesn't — and Dex has to complete the final act without his most reliable resource.
+
+
+---
+RELATIONSHIP FORCE FIELD: Dex / Glimmer
+---
+TENSION AXIS
+Action vs. Intelligence. Dex needs information in time to act on it; Glimmer needs time to be certain before she releases information. The zone between "enough certainty" and "too late" is where most of their friction lives.
+
+POWER DYNAMIC
+Glimmer holds informational power — she always knows more than she has said. Dex holds operational power — he can do things she physically cannot. Neither uses this as leverage against the other, which is what makes the dynamic unusual. They have a standing agreement that is never stated: she gives him what he needs when he needs it, and he brings the world to her when she can't reach it.
+
+FRICTION PATTERNS
+1. Glimmer's information arrives precisely calibrated to the moment she deems safe — which is frequently one scene later than Dex needed it. She is always correct. He is always frustrated. Neither is wrong.
+2. Dex reads rooms the way he was trained to; Glimmer reads them the way she had to. They sometimes reach different assessments of who has power in an encounter. Dex trusts his read; Glimmer trusts hers. One of them is right. It's not always the same one.
+3. Dex's avoidance strategy (forward motion) clashes with Glimmer's need for stillness to function. He sometimes fills silences that she was using to observe. She adjusts. She notes it.
+
+CONNECTION PATTERNS
+1. Genuine ease in the Rare Vulnerability palettes of both — the only two-way version of it in Dex's entire network. Neither performs for the other here.
+2. The shared language of practical observation: they can communicate an entire threat-assessment through object-noticing without speaking. ("New flowers on the left." "Front desk changed shifts." "We have four minutes.")
+3. Glimmer asks Dex things she already knows the answer to. He answers honestly. She does this because she finds his honesty reliable in a world where her calculations always factor in distortion.
+
+RELATIONAL ARC
+Beginning: Trust that has been earned over multiple cases and is expressed entirely through shared silence and practical acts. It reads as professional. It isn't.
+Rupture: Glimmer holds something back at the wrong moment — the one time the calibration is off. She knows it immediately. She doesn't tell him immediately.
+Resolution or Fracture: Either she corrects the timing error in the final act (and the relationship shifts into something more openly acknowledged), or the held intelligence costs something she can't replace, and the trust calculates very differently from that point forward.
+
+
+---
+RELATIONSHIP FORCE FIELD: Dex / Ad-Man
+---
+TENSION AXIS
+Utility vs. Loyalty. Dex uses Ad-Man for information and access; Ad-Man uses Dex for a steady stream of transactions that keep his exchange-logic operational. Neither offers the other loyalty. This works until one of them needs something that can't be priced.
+
+POWER DYNAMIC
+Ad-Man holds data leverage — he has access to information streams that Dex's other contacts don't. Dex holds threat leverage — in Ad-Man's world of commercial transactions, Dex is the most unpredictable variable (someone who sometimes does things for reasons that are not financial). Ad-Man prices this uncertainty into every exchange, which means he is always slightly overcharging.
+
+FRICTION PATTERNS
+1. Ad-Man's 40% accuracy rate. Dex knows this and accounts for it, but accounting for it doesn't make the bad information less operationally damaging when it surfaces mid-scene.
+2. Ad-Man will sell information about Dex to other parties if the price is right — and Dex knows this, and Ad-Man knows Dex knows. The deal continues anyway. This is the most honest relationship in the network.
+3. Ad-Man's monetisation of everything occasionally catches something Dex considers non-negotiable — he will attempt to assign a transaction value to something Dex is doing for a non-financial reason. Dex doesn't explain himself. This frustrates Ad-Man more than he will say.
+
+CONNECTION PATTERNS
+1. Respect for explicit honesty: Ad-Man doesn't pretend to be loyal; Dex doesn't pretend to be purely transactional. Within the transaction frame, they are entirely direct with each other.
+2. Ad-Man finds Dex genuinely interesting in the way that something unpriceable is interesting — he can't fully model Dex's decision-making, and the gap in his model bothers him like a marketing brief with a missing demographic.
+3. Occasional flashes of the person underneath the visor, usually when the scrape is overloaded. In those moments, Dex treats him differently — more carefully — without comment.
+
+RELATIONAL ARC
+Beginning: A mutually beneficial transactional arrangement that both parties understand perfectly and neither finds particularly pleasant.
+Rupture: Ad-Man sells something about Dex that costs Dex significantly — or alternatively, Dex asks for something and Ad-Man gives it without framing it as a deal. Either version ruptures the frame.
+Resolution or Fracture: Either the relationship moves past the transaction layer (which neither knows how to do) or it completes its commercial arc and ends.

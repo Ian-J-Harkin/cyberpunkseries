@@ -63,6 +63,19 @@ def run():
             "inventory_log":     [],
             "scene_beats":       [],
             "current_beat_index": 0,
+            
+            "scene_brief": {
+                "act_position": "Act 1, Chapter 1",
+                "previous_scene_summary": "N/A (Opening Scene)",
+                "scene_plot_function": "Establish the protagonist's normal world and introduce the inciting incident.",
+                "new_state_goal": "Dex receives a job that requires engaging with the bureaucracy.",
+                "character_knowledge": "Dex knows he is low on cash. Sarge knows something is brewing but hasn't shared it.",
+                "character_emotional_states": "Dex: Baseline. Sarge: Baseline.",
+                "physical_status": "No injuries",
+                "health_flags": []
+            },
+            "rolling_state": "No scenes written yet. This is the start of the project.",
+            
             "manuscript":        "",
 
             # Pass the session log object through state so continuity_extractor can write to it.

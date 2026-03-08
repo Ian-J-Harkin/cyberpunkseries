@@ -14,7 +14,7 @@ def load_prompt(filename: str) -> str:
 
 
 def load_global_context() -> str:
-    """Load the Series Bible and Character Matrix and concatenate them.
+    """Load the Series Bible, Character Matrix, and Relationship Force Fields.
     
     This mirrors the n8n 'Digital Library' step: every node receives
     the same shared world foundation prepended to its system prompt,
@@ -22,15 +22,21 @@ def load_global_context() -> str:
     """
     bible   = load_prompt("series_bible.txt")
     matrix  = load_prompt("character_matrix.txt")
+    rels    = load_prompt("relationship_matrix.txt")
+    
     return (
         "════════════════════════════════════════\n"
-        "GLOBAL CONTEXT — SERIES BIBLE\n"
+        "GLOBAL CONTEXT — NARRATIVE PHYSICS (SERIES BIBLE)\n"
         "════════════════════════════════════════\n"
         f"{bible}\n\n"
         "════════════════════════════════════════\n"
-        "GLOBAL CONTEXT — CHARACTER MATRIX\n"
+        "GLOBAL CONTEXT — CHARACTER STATE MACHINES\n"
         "════════════════════════════════════════\n"
         f"{matrix}\n\n"
+        "════════════════════════════════════════\n"
+        "GLOBAL CONTEXT — RELATIONSHIP FORCE FIELDS\n"
+        "════════════════════════════════════════\n"
+        f"{rels}\n\n"
         "════════════════════════════════════════\n"
         "NODE-SPECIFIC INSTRUCTIONS FOLLOW\n"
         "════════════════════════════════════════\n"
