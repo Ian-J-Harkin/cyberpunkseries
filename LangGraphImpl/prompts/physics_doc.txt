@@ -1,0 +1,14 @@
+NARRATIVE PHYSICS: WARM NEON
+CAUSALITY LAWS
+
+The Inconsistent Patronage Law: Castor Vine’s respect for Dex provides no immunity. If a Vine-controlled sub-franchise finds it profitable to rob Dex or mess up his case, they will do so with Vine's silent consent.
+
+The 80% Debt Law: Financial respect is never 100% clean. Refusing a job from Luce triggers a demand to "cough up a portion of the vig," resulting in mandatory resource loss (deduct 1 item from inventory_log).
+
+The Unconfirmed Anxiety Law: Any internal "Lung Rot" symptoms must remain unconfirmed. Blood from a cough must always be traceable to a recent external injury.
+
+WORLD COMPASS
+
+The Level: Formerly middle-class stratum now fraying into low-level rackets and systemic decay.
+
+The Dez (Desolations): Officially depopulated zones of abandoned transit and projects. A porous interface exists where Dez ambassadors trade with Level inhabitants.

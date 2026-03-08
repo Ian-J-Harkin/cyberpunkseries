@@ -62,7 +62,7 @@ def run():
             "infrastructure":    "High fraying — neon decay, acid rain, bureaucratic sludge",
             "inventory_log":     [],
             "lucidity_counts":   {"empathy": 0, "vault": 0, "schmuck": 0},
-            "medical_debt_percent": 20,
+            "medical_loan_balance": 0.20,
             
             "scene_beats":       [],
             "current_beat_index": 0,

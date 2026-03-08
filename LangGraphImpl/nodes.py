@@ -164,7 +164,7 @@ class ContinuityUpdates(BaseModel):
     trust_updates: List[TrustUpdate] = Field(default_factory=list, description="Trust level changes for NPCs based on interactions")
     infrastructure_update: Optional[str] = Field(None, description="Updated fraying / infrastructure description, if mentioned")
     lucidity_increments: LucidityIncrements = Field(default_factory=LucidityIncrements, description="Lucidity moments triggered by Ad-Man")
-    medical_debt_percent_increase: int = Field(default=0, description="Increase to Dex's Vig if he refuses a patron")
+    vig_collection_event: bool = Field(default=False, description="True if Dex refuses a job and Luce demands a portion of the vig")
     rolling_state_update: str = Field(description="The structured bullet-point ROLLING STATE UPDATE")
 
 
@@ -202,8 +202,16 @@ def continuity_extractor(state: NarrativeState) -> dict:
     if not updates_obj:
         updates_obj = ContinuityUpdates()
 
-    # Apply inventory changes
+    # Apply inventory changes (includes Vig collection)
     new_inventory = list(current_inv)
+    
+    if getattr(updates_obj, "vig_collection_event", False) and new_inventory:
+        import random
+        removed_item = random.choice(new_inventory)
+        new_inventory.remove(removed_item)
+        if removed_item not in updates_obj.inventory_removals:
+            updates_obj.inventory_removals.append(removed_item)
+
     for item in updates_obj.inventory_additions:
         if item not in new_inventory:
             new_inventory.append(item)
@@ -227,10 +235,9 @@ def continuity_extractor(state: NarrativeState) -> dict:
         new_lucidity["vault"]   += getattr(updates_obj.lucidity_increments, "vault", 0)
         new_lucidity["schmuck"] += getattr(updates_obj.lucidity_increments, "schmuck", 0)
 
-    # Apply medical debt increase
-    new_medical_debt_percent = state.get("medical_debt_percent", 20)
-    if getattr(updates_obj, "medical_debt_percent_increase", 0) > 0:
-        new_medical_debt_percent += updates_obj.medical_debt_percent_increase
+    # Medical loop balance stays persistent unless intentionally updated by other logic
+    # The Vig collection event results in inventory loss instead of debt increase based on new rules
+    new_medical_loan_balance = state.get("medical_loan_balance", 0.20)
 
     # Write to session log
     session_log = state.get("_session_log")
@@ -255,10 +262,10 @@ def continuity_extractor(state: NarrativeState) -> dict:
                 "beat":  beat_text,
                 "value": updates_obj.infrastructure_update
             })
-        if getattr(updates_obj, "medical_debt_percent_increase", 0) > 0:
-            session_log.record("MEDICAL_DEBT_INCREASE", {
+        if getattr(updates_obj, "vig_collection_event", False):
+            session_log.record("VIG_COLLECTION_EVENT", {
                 "beat": beat_text,
-                "value": updates_obj.medical_debt_percent_increase
+                "action": "Inventory item removed due to job refusal"
             })
         if updates_obj.lucidity_increments:
             incs = {
@@ -276,7 +283,7 @@ def continuity_extractor(state: NarrativeState) -> dict:
         "inventory_log":   new_inventory,
         "supporting_cast": updated_cast,
         "lucidity_counts": new_lucidity,
-        "medical_debt_percent": new_medical_debt_percent,
+        "medical_loan_balance": new_medical_loan_balance,
         "current_beat_index": beat_index + 1,
         "rolling_state": getattr(updates_obj, "rolling_state_update", "") or state.get("rolling_state", "")
     }
