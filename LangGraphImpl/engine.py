@@ -74,7 +74,7 @@ def run():
             ],
 
             "infrastructure":    "High fraying — neon decay, acid rain, bureaucratic sludge",
-            "inventory_log":     [],
+            "inventory_log":     ["Stun baton", "Burner phone", "Flask of cheap synthetic whiskey"],
             "lucidity_counts":   {"empathy": 0, "vault": 0, "schmuck": 0},
             "medical_loan_balance": 0.20,
             
@@ -82,16 +82,16 @@ def run():
             "current_beat_index": 0,
             
             "scene_brief": {
-                "act_position": "Act 1, Chapter 1",
-                "previous_scene_summary": "N/A (Opening Scene)",
-                "scene_plot_function": "Establish the protagonist's normal world and introduce the inciting incident.",
-                "new_state_goal": "Dex receives a job that requires engaging with the bureaucracy.",
-                "character_knowledge": "Dex knows he is low on cash. Sarge knows something is brewing but hasn't shared it.",
-                "character_emotional_states": "Dex: Baseline. Sarge: Baseline.",
+                "act_position": "Act 2 — RISING PRESSURE",
+                "previous_scene_summary": "N/A",
+                "scene_plot_function": "Luce offers Dex a job to skip-trace a runner. Dex must refuse because it crosses his moral line. Luce must then politely demand a 'portion of the vig' (repayment of the medical loan).",
+                "new_state_goal": "Reduce Dex's inventory_log by one item and increase his medical_debt percentage.",
+                "character_knowledge": "Dex knows he is low on cash. Luce is here to collect.",
+                "character_emotional_states": "Dex is in a 'Handkerchief Check' stress loop (unconfirmed anxiety). Luce is the 'Reasonable Enforcer'.",
                 "physical_status": "No injuries",
                 "health_flags": []
             },
-            "rolling_state": "No scenes written yet. This is the start of the project.",
+            "rolling_state": "No scenes written yet. A sub-franchise of Vine's organization just tossed Dex's place looking for a lead. Now Luce has arrived to 'talk'.",
             
             "manuscript":        "",
 

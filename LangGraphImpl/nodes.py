@@ -239,8 +239,10 @@ def continuity_extractor(state: NarrativeState) -> dict:
         new_lucidity["schmuck"] = min(2, new_lucidity["schmuck"] + getattr(updates_obj.lucidity_increments, "schmuck", 0))
 
     # Medical loop balance stays persistent unless intentionally updated by other logic
-    # The Vig collection event results in inventory loss instead of debt increase based on new rules
     new_medical_loan_balance = state.get("medical_loan_balance", 0.20)
+    # The Vig collection event results in inventory loss AND a 5% debt increase based on the new logic
+    if getattr(updates_obj, "vig_collection_event", False):
+        new_medical_loan_balance += 0.05
 
     # Write to session log
     session_log = state.get("_session_log")
@@ -268,7 +270,7 @@ def continuity_extractor(state: NarrativeState) -> dict:
         if getattr(updates_obj, "vig_collection_event", False):
             session_log.record("VIG_COLLECTION_EVENT", {
                 "beat": beat_text,
-                "action": "Inventory item removed due to job refusal"
+                "action": "Inventory item removed due to job refusal, debt increased by 5%"
             })
         if updates_obj.lucidity_increments:
             incs = {
