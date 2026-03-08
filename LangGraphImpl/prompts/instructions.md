@@ -30,29 +30,24 @@ class NarrativeState(TypedDict):
     vault_access_level: int     # 0 = Earthside only, 1 = Lunar secrets accessible
 2. Node Definitions (The Agent Roles)
 Node A: The Narrative DNA Architect
-Role: Initializes the session by injecting the North Star and World Compass into the state.
-
-Prompt Logic: "Ensure the environment is defined by low-grade friction and bureaucratic hurdles. Set the 'Fraying Level' for the current location."
+Role: Initializes the session by injecting the Governance and World Compass into the state.
+Prompt Logic: Uses Structured Output to generate `governance`, `boundaries`, and `infrastructure` dynamically by reading `physics_doc.txt`.
 
 Node B: The Structural Scene Plotter
-Role: Generates 10-15 granular beats for the chapter.
-
-Prompt Logic: "Follow the Protagonist's MBTI (ESTP) and Enneagram (7w8). Every three beats, an external 'Friction Event' (broken tech or paperwork) must obstruct progress. No internal brooding; keep the character in motion."
+Role: Generates granular beats for the chapter.
+Prompt Logic: Reads the requested volume of beats from `scene_plotter.txt` and outputs a Pydantic `BeatList`.
 
 Node C: The Persona-Driven Drafter
 Role: The primary prose engine.
-
-Prompt Logic: "Convert the current beat into prose. Apply the Voice Anchor (Elmore Leonard/Will Smith). Enforce Vocabulary Quarantines (e.g., no 'shimmering', 'hacker', or 'chrome'). Describe Glimmer's physical limitations (cushion-propped autoimmunity) through the protagonist's unimpressed-but-curious lens."
+Prompt Logic: Converts the audited beat into prose applying Voice Anchors, limiting Vocabulary Quarantines, and obeying Formulating Rules.
 
 Node D: The Continuity Extractor
 Role: Updates the State after each scene.
-
-Prompt Logic: "Analyze the new draft. Did the protagonist lose/gain an item? Did an NPC's trust level change? Did a piece of infrastructure break? Update the inventory_log and cast_matrix accordingly."
+Prompt Logic: Uses Structured JSON to track Vig collections (inventory item losses dictated by LLM logic), Trust updates, Lucidity triggers (Ad-Man Oracle caps dictated by law), and provides the `Rolling State`.
 
 3. Edge Logic (Information Gating)
-To manage The Vault (The Lunar Secrets), the system uses a Conditional Edge. This ensures the "Drafter" node is physically incapable of "leaking" the secret until the "Plotter" node triggers the discovery.
-
-Rule: If vault_access_level < 1, the Drafter receives a masked version of the World_Compass where the Moon's true nature (Computational Drift/Mineral Euphoria) is replaced with "Industrial Rumors."
+To manage The Vault (The Lunar Secrets), the system uses a Conditional Edge wrapping the Drafter.
+Rule: If vault_access_level < 1, the Drafter receives a masked version of the World_Compass where the Moon's true nature is dynamically pulled from the `[VAULT_MASK]` section in `physics_doc.txt`.
 
 4. The "Character Matrix" Logic (Supporting Cast)
 To prevent secondary characters from becoming "generic," each entry in the supporting_cast list must include:
