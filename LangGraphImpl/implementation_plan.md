@@ -1,112 +1,33 @@
-# Phase 3A: LangChainFictioneer Logic Injection
+# Refactoring to Prompt-Driven Engine
 
-## Confirmed Decisions
-- ✅ **Option A** — Logic and prompt injection. Architecture stays as-is.
-- ✅ Pre-authored starting-point documents will be generated from the existing Series Bible.
-- ✅ **Option B** (auto-generating Physics Doc via LLM Setup Graph) → deferred to Phase 3B.
-- ✅ **Anthropic API key support** → deferred to Phase 3B.
+**Refactoring Logic: The "Skeleton & Muscle" Philosophy**
+*Thinking Model:* "The Python code is the Skeleton (data structures and flow). The Text Prompts are the Muscle (decisions and values). The Skeleton must never decide how a bone moves; it only provides the joint. All 'How' and 'Why' logic must be evicted from `.py` files and relocated to `.txt` files."
 
----
+## Phase 1: Dynamic Initialization (Evicting Static Data)
+**Goal:** Remove hard-coded character definitions and world constants from `engine.py`.
+**Logic Change:** Replace the static `supporting_cast` list in `initial_state` with a call to a new parser.
 
-## ❓ One Remaining Decision — Rolling State vs JSONL
+*   **Create `parse_character_matrix(file_content)` utility in `context.py`.**
+    *   This utility must use regex or string splitting to find character names (e.g., "LUCE", "ROOK") and map the subsequent bullet points into the `SupportingCast` TypedDict format.
+*   **Update `initial_state`:** Set the `supporting_cast` field to the output of the new parsing function so that adding a character only requires a text edit.
 
-These two systems do different things. Here's the distinction:
+## Phase 2: Instruction-Driven Continuity (Evicting Math)
+**Goal:** Remove the "Vig" math (random item loss, 5% increase) and Lucidity caps from `nodes.py`.
+*Thinking Model:* "The LLM is the judge. If the LLM says a 'Vig event' happened and specifies 'Stun baton' is lost, the Python simply deletes 'Stun baton'. It does not choose the item itself."
 
-### The JSONL Event Log (what we have now)
-The current `logs/warm_neon_session_1.jsonl` is a **machine-readable database ledger**.
-Each entry answers: *"What concrete fact changed?"*
+*   **Modify `ContinuityUpdates` Pydantic schema** to include `specific_item_to_remove: Optional[str]` and `lucidity_type: Optional[str]`.
+*   **Refactor `nodes.py`:** Remove `import random` and the `min(2, ...)` logic from `continuity_extractor`.
+*   **Update `continuity_extractor.txt`:** Add explicit instructions:
+    *   "If the prose indicates a job refusal, identify one specific item from the current inventory to be lost as 'the vig'."
+    *   "If Ad-Man achieves lucidity, categorize it as empathy, vault, or schmuck-rage."
 
-```json
-{"event_type": "INVENTORY_CHANGE", "payload": {"added": ["forged-ID"], "removed": []}}
-{"event_type": "TRUST_UPDATE", "payload": {"changes": {"Sarge": -5}}}
-```
-**Best for:** querying history, checking if a specific item exists, auditing across sessions.
+## Phase 3: Externalizing Physics (Evicting Constants)
+**Goal:** Remove the "Industrial Rumors" mask and world-limit constants from the code.
+*Thinking Model:* "If a rule exists in Python (like a cap of 2 lucidity moments), move that sentence into the `physics_doc.txt` as a 'Law'. It is now the LLM’s job to count and respect that law."
 
-### The Rolling State (what LangChainFictioneer does)
-A `rolling_state` string — a structured **narrative reasoning document**, updated after every scene.
-Each update answers: *"What is the current story reality?"*
+*   **Externalize Vault Masking:** Add a `[VAULT_MASK]` section to `physics_doc.txt` containing the "Industrial Rumors" text. Update `_masked_drafter` in `graph.py` to call `load_prompt("physics_doc.txt")` and extract the mask string dynamically.
+*   **Global Constants:** Move the "2x Lucidity Limit" into `physics_doc.txt` as a "Systemic Law" that the `continuity_extractor` must respect.
 
-```
-CHARACTER STATES
-- Dex: Mild Stress palette (biometric failed at checkpoint), Act 1 arc unchanged
-- Sarge: Baseline, but trust slipped — noticed Dex's ID didn't scan
-
-INFORMATION LEDGER
-- Dex now knows the checkpoint scanner is on the blacklist
-- Sarge does NOT yet know Dex is carrying the vault key
-
-PHYSICS LEDGER
-- Dex spent 1 unit of Social Credit bribing the clerk
-- Bureaucracy Law tested: form queue delayed Dex by 2 beats
-- Consequence in motion: Sarge flagged the anomaly — will surface in Ch. 3
-
-PLOT HOOKS
-- Primary: Dex must reach the Records Office before Sarge circles back
-- Secondary: Ad-Man overheard the bribe — now has leverage
-```
-**Best for:** feeding into the next drafting node as rich narrative context. Makes the prose drafter dramatically better.
-
-### Side-by-Side Summary
-
-| | JSONL Log | Rolling State |
-|---|---|---|
-| Format | Machine-readable facts | Human-readable narrative bullets |
-| Scope | What changed | What the current story reality is |
-| Used by | Developer/audit queries | The drafter prompt for the next scene |
-| Replaced by the other? | No — tracks granular deltas | No — synthesises narrative meaning |
-
-### My Recommendation: Run Both
-- **JSONL** stays as the audit/data layer (unchanged).
-- **Rolling State** is added as a new `rolling_state: str` field in `NarrativeState` and is generated by an upgraded `continuity_extractor` that now produces **both** the structured Pydantic updates (JSONL) **and** a Rolling State narrative summary string.
-
-> [!IMPORTANT]
-> **Please confirm:** Run Rolling State **alongside** the JSONL log?
-> If yes, I'll finalise the plan and start execution.
-
----
-
-## Proposed Changes (Option A, pending Rolling State confirmation)
-
-### New / Modified Prompt Files
-#### [MODIFY] `prompts/series_bible.txt`
-Restructured as a formal **Narrative Physics Document** with the five sections:
-`CAUSALITY LAWS / RESOURCE & STAKES SYSTEM / INFORMATION ECONOMY / ESCALATION RULE / TONAL PHYSICS`
-
-#### [MODIFY] `prompts/character_matrix.txt`
-Each character upgraded to a **Character State Machine** with:
-`CORE WOUND / FLAWED STRATEGY / BEHAVIOURAL PALETTES (4 states) / ARC VERSIONS (Act 1 / Midpoint / End)`
-
-#### [NEW] `prompts/relationship_matrix.txt`
-One **Relationship Force Field** per pair (Dex/Sarge, Dex/Glimmer, Dex/Ad-Man) with:
-`TENSION AXIS / POWER DYNAMIC / FRICTION PATTERNS / CONNECTION PATTERNS / RELATIONAL ARC`
-
-#### [MODIFY] `prompts/persona_drafter.txt`
-Augmented with the **6 Formal Drafting Rules** from LangChainFictioneer, plus a Scene Brief structure passed from state.
-
-#### [MODIFY] `prompts/continuity_extractor.txt`
-Updated to produce both Pydantic-structured deltas AND a Rolling State update.
-
----
-
-### Code Changes
-
-#### [MODIFY] `state.py`
-- Add `SceneBrief` TypedDict: `act_position`, `previous_scene_summary`, `scene_plot_function`, `new_state_goal`, `character_knowledge`, `character_emotional_states`
-- Add `rolling_state: str` field to `NarrativeState`
-- Add `scene_brief: SceneBrief` field to `NarrativeState`
-
-#### [MODIFY] `context.py`
-- `load_global_context()` also loads `relationship_matrix.txt`
-
-#### [MODIFY] `nodes.py`
-- `persona_drafter` now receives `scene_brief` from state and injects it into the drafting prompt
-- `continuity_extractor` Pydantic schema gains a `rolling_state_update: str` field; the returned dict writes it to `state["rolling_state"]`
-
-#### [MODIFY] `engine.py`
-- Initial state gains a starter `SceneBrief` and `rolling_state = "No scenes written yet. This is the start of the project."`
-
----
-
-## Deferred to Phase 3B
-- **Option B**: Setup Graph with fan-out `Send` API to auto-generate Physics Doc, State Machines, and Relationship Force Fields via LLM
-- **Anthropic API key support** for Claude Opus/Sonnet in the Setup Pipeline
+## Phase 4: Verification & Logging
+*   **Update SessionLog:** Ensure the `continuity_extractor` still records these events in the JSONL log, but labels them as "LLM-Triggered Continuity Events" to distinguish them from manual state changes.
+*   **Audit Run:** Run a test session using the scene brief in `engine.py` to confirm the LLM successfully triggers a Vig collection based solely on the text instructions.

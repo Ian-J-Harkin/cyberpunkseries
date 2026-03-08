@@ -80,6 +80,38 @@
 - [x] Verify `character_matrix.txt` contains Luce's Mercenary Pivot and anchors
 - [x] Add the 20% "Mercenary Friction" rule to Causality Laws in `physics_doc.txt`
 
+## Phase 1: Dynamic Character Initialization
+- [x] Implement `parse_character_matrix(file_content)` utility in `context.py`
+- [x] Refactor `engine.py` to remove static `supporting_cast` list and use the parser
+- [x] Update `initial_state` to use the dynamically parsed cast
+
+## Phase 2: Instruction-Driven Continuity
+- [x] Modify `ContinuityUpdates` in `nodes.py` to remove random choices and strict math bounds
+- [x] Add explicit instructions to `continuity_extractor.txt` for handling Vig and Lucidity types
+- [x] Update `continuity_extractor` logic to apply LLM-chosen actions
+
+## Phase 3: Moving Physics to the Physics Doc
+- [x] Add `[VAULT_MASK]` section to `physics_doc.txt`
+- [x] Update `_masked_drafter` in `graph.py` to pull the mask directly from `physics_doc.txt`
+- [x] Move the "2x Lucidity Limit" into `physics_doc.txt` as a Systemic Law
+
+## Phase 4: Verification & Logging
+- [x] Update `SessionLog` in `nodes.py` to label "LLM-Triggered Continuity Events"
+- [x] Run an audit session with "The Reasonable Collection" brief to verify LLM execution
+
+## Phase 5: Dynamic Scene Architecture
+- [x] Create Pydantic `BeatList` schema in `nodes.py`
+- [x] Update `scene_plotter` to use structured output, removing the "10-15 beats" hard-coded prompt
+
+## Phase 6: Externalizing the World Compass
+- [x] Remove boundaries initialization from `nodes.py`
+- [x] Update `dna_architect.txt` to extract boundaries from `PHYSICS_LAWS`
+
+## Phase 7: The Governance Refactor
+- [x] Empty `infrastructure` in `engine.py` initial state
+- [x] Update `dna_architect` to use structured output without truncating `governance`
+- [x] Instruct `dna_architect` to define Governance based on arc theme from state
+
 ## Deferred Phase
 - Option B: Setup Graph with LangGraph Send API fan-out
 - Anthropic API key support for Claude Opus/Sonnet

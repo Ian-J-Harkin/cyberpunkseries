@@ -44,6 +44,8 @@ Replace the `scene_brief` and `inventory_log` in your `initial_state` with the f
 3. Open `logs/warm_neon_session_1.jsonl`. 
 4. Look for the `VIG_COLLECTION_EVENT` key. You should see `"action": "Inventory item removed due to job refusal, debt increased by 5%"`.
 5. Look for `INVENTORY_CHANGE` and verify that the `removed` array contains one of the three starting items.
+6. Verify in the console that the `dna_architect` output successfully populated `governance` and `infrastructure` (which started as empty strings).
+7. Verify that the `scene_plotter` generated the beats dynamically instead of hard-coding 10-15 beats.
 
 ---
 

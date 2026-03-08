@@ -13,10 +13,10 @@ The repository is structured neatly at `c:\Github\AI_Fiction\cyberpunkseries\Lan
   - `dna_architect.txt`, `scene_plotter.txt`, `friction_auditor.txt`, `persona_drafter.txt`, `continuity_extractor.txt`
 - `state.py`: Defines the `NarrativeState` typed dictionary and sub-schemas, including `SceneBrief`.
 - `context.py`: Handles global prompt injection (Physics Doc + State Machines + Force Fields) and manages the structured `SessionLog`.
-- `nodes.py`: Houses the LangGraph nodes. Includes the new `friction_auditor` which enforces the 80/20 rule, and a Pydantic-upgraded `continuity_extractor` which guarantees strict JSON outputs via LangChain's `.with_structured_output()`.
+- `nodes.py`: Houses the LangGraph nodes. The architect and plotter now use Pydantic `with_structured_output`, and the extractor guarantees strict JSON continuity updates. No "how" or "why" logic exists in the Python file.
 - `graph.py`: Constructs the `StateGraph` and defines the execution flow.
-- `engine.py`: The terminal-based entry point script.
-- `ui.py`: The **Streamlit Frontend** that provides a real-time visual dashboard of the graph's execution, the manuscript, and session logs.
+- `engine.py`: The terminal-based entry point script. It uses `parse_character_matrix` to dynamically load character text blocks so Python doesn't hardcode them.
+- `ui.py`: The **Streamlit Frontend** that provides a real-time visual dashboard of the graph's execution.
 
 ## 2. Global Context & Friction Auditing
 
@@ -40,10 +40,13 @@ The engine uses three layers of state permanence:
 2. **Session Event Logs**: The Continuity Extractor writes discrete state-changes (Inventory gains/losses, Trust deltas, Lucidity updates, and Medical Debt increases) into a human-readable, queryable JSONL file at `logs/warm_neon_session_1.jsonl`.
 3. **Rolling State**: A human-readable text ledger updated every scene (Character States, Information Ledger, Physics Ledger) that feeds forward into the *next* scene's drafting prompt.
 
-## 5. Specific Character Mechanics
-The Continuity Extractor actively monitors and updates hyper-specific character mechanics inside the LangGraph state:
-- **The Vig (`medical_debt`)**: Tracks Dex's mandatory repayments to his patron. Increases when operations hit specific snags.
-- **Lucidity Oracle (`lucidity_counts`)**: Hard-caps Ad-Man's moments of clarity (Empathy, Vault-Knowledge, Rage-at-Schmuck).
+## 5. Specific Character Mechanics & Prompt-Driven "De-coding"
+The engine has been fully "de-coded"—meaning that logic governing *how* characters behave, *how many* beats are generated, and *what* the physical boundaries are, is no longer written in Python.
+
+- **Dynamic Characters**: Characters are parsed seamlessly via text-blocks from `character_matrix.txt` on boot.
+- **The Vig (`medical_loan_balance`)**: The LLM autonomously determines the narrative fit for which item to confiscate based strictly on instructions in `continuity_extractor.txt`, removing `import random` bounds from python.
+- **The Lucidity Oracle`: Caps on Ad-Man's clarity (Empathy, Vault-Knowledge, Schmuck-Rage) and the `[VAULT_MASK]` are read textually from the `physics_doc.txt` as a "Systemic Law."
+- **Governance & Geography**: The DNA architect reads the state and populates the world geometry mapping without Python fallbacks.
 
 ## 6. How to Run
 
