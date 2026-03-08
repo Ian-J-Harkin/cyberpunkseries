@@ -1,14 +1,13 @@
 import os
 from langgraph.checkpoint.sqlite import SqliteSaver
 from graph import build_graph
-from context import SessionLog
+from context import SessionLog, load_prompt, parse_character_matrix
 
 def run():
     builder  = build_graph()
     db_path  = os.path.join(os.path.dirname(__file__), "checkpoints.sqlite")
 
     # ── Session identity ───────────────────────────────────────────────────────
-    # Change thread_id to start a fresh persistent session without deleting the DB.
     session_id = "warm_neon_session_1"
     config     = {"configurable": {"thread_id": session_id}}
 
@@ -20,6 +19,9 @@ def run():
         graph = builder.compile(checkpointer=memory)
 
         # ── Initial State ──────────────────────────────────────────────────────
+        matrix_text = load_prompt("character_matrix.txt")
+        parsed_cast = parse_character_matrix(matrix_text)
+        
         initial_state = {
             "vault_access_level": 0,
 
@@ -35,43 +37,7 @@ def run():
                 "health_flags":    []
             },
 
-            "supporting_cast": [
-                {
-                    "name":               "Sarge",
-                    "internal_frequency": "Cynical realism filtered through tactical habit",
-                    "noticing_rule":      "Sarge notices the protagonist's biometric errors",
-                    "physical_anchor":    "Scuffed cybernetic arm, always tapping",
-                    "trust_level":        50
-                },
-                {
-                    "name":               "Glimmer",
-                    "internal_frequency": "Hyper-observant despite physical limitation",
-                    "noticing_rule":      "Glimmer notices social power dynamics in the room",
-                    "physical_anchor":    "Cushion-propped autoimmunity, ozone tea",
-                    "trust_level":        40
-                },
-                {
-                    "name":               "Ad-Man",
-                    "internal_frequency": "Neural-Scraped Sloganeering",
-                    "noticing_rule":      "Ad-Man notices what the protagonist is trying to sell",
-                    "physical_anchor":    "Perpetually blinking ad-overlay visor",
-                    "trust_level":        30
-                },
-                {
-                    "name":               "Rook",
-                    "internal_frequency": "Weaponizes his burns for intimidation",
-                    "noticing_rule":      "Rook recognizes Dex's fear or weakness",
-                    "physical_anchor":    "Permanently disfigured by electrocution",
-                    "trust_level":        10
-                },
-                {
-                    "name":               "Luce",
-                    "internal_frequency": "The Reasonable Enforcer",
-                    "noticing_rule":      "Luce notices missed payments and contract details",
-                    "physical_anchor":    "Polite bureaucrat of the underworld",
-                    "trust_level":        30
-                }
-            ],
+            "supporting_cast": parsed_cast,
 
             "infrastructure":    "High fraying — neon decay, acid rain, bureaucratic sludge",
             "inventory_log":     ["Stun baton", "Burner phone", "Flask of cheap synthetic whiskey"],

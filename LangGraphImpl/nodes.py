@@ -168,6 +168,8 @@ class ContinuityUpdates(BaseModel):
     infrastructure_update: Optional[str] = Field(None, description="Updated fraying / infrastructure description, if mentioned")
     lucidity_increments: LucidityIncrements = Field(default_factory=LucidityIncrements, description="Lucidity moments triggered by Ad-Man")
     vig_collection_event: bool = Field(default=False, description="True if Dex refuses a job and Luce demands a portion of the vig")
+    specific_item_to_remove: Optional[str] = Field(None, description="The specific item from the inventory list to remove based on narrative fit for the Vig event")
+    lucidity_type: Optional[str] = Field(None, description="The specific type of lucidity shown by Ad-man if any (empathy, vault, or schmuck-rage)")
     character_modifiers_update: dict = Field(default_factory=dict, description="Updates to permanent character modifiers, e.g., {'Rook': 'Stage 2'}")
     rolling_state_update: str = Field(description="The structured bullet-point ROLLING STATE UPDATE")
 
@@ -210,11 +212,11 @@ def continuity_extractor(state: NarrativeState) -> dict:
     new_inventory = list(current_inv)
     
     if getattr(updates_obj, "vig_collection_event", False) and new_inventory:
-        import random
-        removed_item = random.choice(new_inventory)
-        new_inventory.remove(removed_item)
-        if removed_item not in updates_obj.inventory_removals:
-            updates_obj.inventory_removals.append(removed_item)
+        removed_item = getattr(updates_obj, "specific_item_to_remove", None)
+        if removed_item and removed_item in new_inventory:
+            new_inventory.remove(removed_item)
+            if removed_item not in updates_obj.inventory_removals:
+                updates_obj.inventory_removals.append(removed_item)
 
     for item in updates_obj.inventory_additions:
         if item not in new_inventory:
@@ -232,12 +234,18 @@ def continuity_extractor(state: NarrativeState) -> dict:
             trust_changes[update.name] = update.delta
     updated_cast = list(cast_by_name.values())
 
-    # Apply lucidity increments (Capped at exactly 2 max per novel)
+    # Apply lucidity increments (The strict cap has been moved to prompt instructions)
     new_lucidity = dict(state.get("lucidity_counts", {"empathy": 0, "vault": 0, "schmuck": 0}))
     if updates_obj.lucidity_increments:
-        new_lucidity["empathy"] = min(2, new_lucidity["empathy"] + getattr(updates_obj.lucidity_increments, "empathy", 0))
-        new_lucidity["vault"]   = min(2, new_lucidity["vault"] + getattr(updates_obj.lucidity_increments, "vault", 0))
-        new_lucidity["schmuck"] = min(2, new_lucidity["schmuck"] + getattr(updates_obj.lucidity_increments, "schmuck", 0))
+        new_lucidity["empathy"] = new_lucidity["empathy"] + getattr(updates_obj.lucidity_increments, "empathy", 0)
+        new_lucidity["vault"]   = new_lucidity["vault"] + getattr(updates_obj.lucidity_increments, "vault", 0)
+        new_lucidity["schmuck"] = new_lucidity["schmuck"] + getattr(updates_obj.lucidity_increments, "schmuck", 0)
+        
+    if getattr(updates_obj, "lucidity_type", None) is not None:
+        l_type = updates_obj.lucidity_type.lower()
+        if "empathy" in l_type: new_lucidity["empathy"] += 1
+        elif "vault" in l_type: new_lucidity["vault"] += 1
+        elif "schmuck" in l_type: new_lucidity["schmuck"] += 1
 
     # Medical loop balance stays persistent unless intentionally updated by other logic
     new_medical_loan_balance = state.get("medical_loan_balance", 0.20)
@@ -259,22 +267,26 @@ def continuity_extractor(state: NarrativeState) -> dict:
     if session_log is not None:
         if new_inventory != current_inv:
             session_log.record("INVENTORY_CHANGE", {
+                "source": "LLM-Triggered Continuity Event",
                 "beat": beat_text,
                 "added":   updates_obj.inventory_additions,
                 "removed": updates_obj.inventory_removals
             })
         if trust_changes:
             session_log.record("TRUST_UPDATE", {
+                "source": "LLM-Triggered Continuity Event",
                 "beat": beat_text,
                 "changes": trust_changes
             })
         if updates_obj.infrastructure_update:
             session_log.record("INFRASTRUCTURE_UPDATE", {
+                "source": "LLM-Triggered Continuity Event",
                 "beat":  beat_text,
                 "value": updates_obj.infrastructure_update
             })
         if getattr(updates_obj, "vig_collection_event", False):
             session_log.record("VIG_COLLECTION_EVENT", {
+                "source": "LLM-Triggered Continuity Event",
                 "beat": beat_text,
                 "action": "Inventory item removed due to job refusal, debt increased by 5%"
             })
@@ -286,11 +298,13 @@ def continuity_extractor(state: NarrativeState) -> dict:
             }
             if any(v > 0 for v in incs.values()):
                 session_log.record("LUCIDITY_UPDATE", {
+                    "source": "LLM-Triggered Continuity Event",
                     "beat": beat_text,
                     "increments": incs
                 })
         if updates_obj.character_modifiers_update:
             session_log.record("CHARACTER_MODIFIERS_UPDATE", {
+                "source": "LLM-Triggered Continuity Event",
                 "beat": beat_text,
                 "updates": updates_obj.character_modifiers_update
             })

@@ -9,8 +9,17 @@ The Pivot Probability: There is a 20% "Mercenary Friction" chance where Luce may
 
 The Unconfirmed Anxiety Law: Any internal "Lung Rot" symptoms must remain unconfirmed. Blood from a cough must always be traceable to a recent external injury.
 
+The Oracle Limit Law: Ad-Man’s lucidity is strictly gated. He may only exhibit up to 2 moments of Empathy, 2 moments of Vault-Knowledge, and 2 moments of "Schmuck-Rage" (directed at Leon Schmuck) per novel. The extractor must respect this mathematical hard cap.
+
 WORLD COMPASS
 
 The Level: Formerly middle-class stratum now fraying into low-level rackets and systemic decay.
 
 The Dez (Desolations): Officially depopulated zones of abandoned transit and projects. A porous interface exists where Dez ambassadors trade with Level inhabitants.
+
+[VAULT_MASK]
+north: Industrial Rumors
+south: Industrial Rumors
+east: Industrial Rumors
+west: Industrial Rumors
+_note: The Moon's true nature (Computational Drift/Mineral Euphoria) is classified.

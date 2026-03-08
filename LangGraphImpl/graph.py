@@ -10,25 +10,28 @@ from nodes import (
     continuity_extractor
 )
 
-# ── Vault mask constants ───────────────────────────────────────────────────────
-_MASKED_BOUNDARIES = {
-    "north": "Industrial Rumors",
-    "south": "Industrial Rumors",
-    "east":  "Industrial Rumors",
-    "west":  "Industrial Rumors",
-    "_note": "The Moon's true nature (Computational Drift/Mineral Euphoria) is classified."
-}
-
 def _masked_drafter(state: NarrativeState) -> dict:
     """Graph-level vault wrapper around persona_drafter.
     
-    When vault_access_level < 1, BOUNDARIES are swapped for Industrial Rumors
-    BEFORE the LLM ever touches the state. Physically incapable of leaking
-    the lunar secret — equivalent to n8n's If/Else hard firewall.
+    When vault_access_level < 1, BOUNDARIES are swapped for the text under
+    [VAULT_MASK] in physics_doc.txt BEFORE the LLM ever touches the state.
     """
     if state.get("vault_access_level", 0) < 1:
         masked = dict(state)
-        masked["boundaries"] = copy.deepcopy(_MASKED_BOUNDARIES)
+        
+        from context import load_prompt
+        import re
+        physics_text = load_prompt("physics_doc.txt")
+        mask_match = re.search(r'\[VAULT_MASK\]\n(.*)', physics_text, re.DOTALL)
+        
+        mask_dict = {}
+        if mask_match:
+            for line in mask_match.group(1).strip().split('\n'):
+                if ':' in line:
+                    k, v = line.split(':', 1)
+                    mask_dict[k.strip()] = v.strip()
+                    
+        masked["boundaries"] = mask_dict if mask_dict else {"error": "mask not found in physics_doc"}
         return persona_drafter(masked)
     return persona_drafter(state)
 

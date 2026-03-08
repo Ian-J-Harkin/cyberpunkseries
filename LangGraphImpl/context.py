@@ -13,6 +13,61 @@ def load_prompt(filename: str) -> str:
         return f.read().strip()
 
 
+def parse_character_matrix(file_content: str) -> list[dict]:
+    """Parse character_matrix.txt text blocks into SupportingCast dicts dynamically."""
+    import re
+    cast = []
+    current_char = None
+    char_data = {}
+    
+    for line in file_content.split('\n'):
+        # Detect character headers dynamically
+        if re.match(r'^(SUPPORTING CAST:|THE PATRON:|THE ENFORCERS:|THE ORACLE:|LUCE \(|ROOK —)', line):
+            if current_char and "name" in char_data:
+                cast.append(char_data)
+            
+            # Extract name
+            name = "Unknown"
+            if "GLIMMER" in line: name = "Glimmer"
+            elif "CASTOR VINE" in line: name = "Castor Vine"
+            elif "LUCE" in line: name = "Luce"
+            elif "ROOK" in line: name = "Rook"
+            elif "AD-MAN" in line: name = "Ad-Man"
+            else: name = line.split(':')[0]
+            
+            current_char = name
+            char_data = {
+                "name": current_char,
+                "internal_frequency": "",
+                "noticing_rule": "",
+                "physical_anchor": "",
+                "trust_level": 50 # Default starting trust
+            }
+            continue
+
+        if current_char:
+            lower_line = line.lower()
+            if "anchor" in lower_line:
+                char_data["physical_anchor"] = str(char_data.get("physical_anchor", "")) + line + " "
+            elif "rule" in lower_line or "palette" in lower_line or "trigger" in lower_line:
+                char_data["noticing_rule"] = str(char_data.get("noticing_rule", "")) + line + " "
+            elif len(line.strip()) > 0:
+                char_data["internal_frequency"] = str(char_data.get("internal_frequency", "")) + line + " "
+
+    if current_char and "name" in char_data:
+        cast.append(char_data)
+
+    # Clean up empty strings and generic headers
+    for c in cast:
+        for k in ["internal_frequency", "noticing_rule", "physical_anchor"]:
+            c[k] = c[k].strip() or "See character matrix for details."
+            
+    # Filter out generic grouping headers
+    cast = [c for c in cast if c["name"] not in ["THE ENFORCERS", "Unknown"]]
+    
+    return cast
+
+
 def load_global_context() -> str:
     """Load the Series Bible, Character Matrix, and Relationship Force Fields.
     

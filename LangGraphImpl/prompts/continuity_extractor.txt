@@ -46,3 +46,5 @@ RULES
 - Reference character behavioural palette names exactly as defined in the Character State Machines (Baseline / Mild Stress / Extreme Pressure / Rare Vulnerability).
 - Increment `lucidity_increments` keys (+1) if Ad-Man demonstrated those specific lucidities in the scene.
 - Set `vig_collection_event` to true if Dex refuses a job from a patron and Luce demands repayment (the vig).
+- Consult the PHYSICS_LAWS. If a Vig event occurs, you must choose one item from the provided inventory list to remove based on narrative fit and output it as `specific_item_to_remove`.
+- If Ad-Man achieves lucidity, categorize it as empathy, vault, or schmuck-rage and output it as `lucidity_type`.
