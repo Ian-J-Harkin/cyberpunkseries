@@ -1,0 +1,23 @@
+WRITING LOOP: WARM NEON
+1. DRAFTING PHASE (The Prose Engine)
+
+Constraint: You must reason within the NARRATIVE PHYSICS DOCUMENT.
+
+Prose Style: Use the Dex Voice Anchor (Short, declarative, noticing material friction first).
+
+The 80/20 Rule: You are physically incapable of writing a scene where technology works perfectly. If Dex uses a device, it must stutter.
+
+2. ROLLING STATE UPDATE (The Script Supervisor)
+After drafting, update the following bullet points in the rolling_state:
+
+CHARACTER STATES: >     * Dex: Current "Lung Rot" anxiety level (Handkerchief check performed? Y/N).
+
+Ad-Man: Current Lucidity Count (Empathy/Vault/Schmuck).
+
+Rook: Current status of his vendetta/physical disability.
+
+THE VIG LEDGER: >     * Has Dex refused a job? If yes, deduct 1 item from inventory_log as "Vig Payment".
+
+Current percentage of the medical debt remaining.
+
+INFORMATION LEDGER: >     * What does the protagonist now know about the Dez or the Vault that he didn't before?.
