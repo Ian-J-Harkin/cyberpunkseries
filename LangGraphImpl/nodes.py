@@ -168,6 +168,7 @@ class ContinuityUpdates(BaseModel):
     infrastructure_update: Optional[str] = Field(None, description="Updated fraying / infrastructure description, if mentioned")
     lucidity_increments: LucidityIncrements = Field(default_factory=LucidityIncrements, description="Lucidity moments triggered by Ad-Man")
     vig_collection_event: bool = Field(default=False, description="True if Dex refuses a job and Luce demands a portion of the vig")
+    character_modifiers_update: dict = Field(default_factory=dict, description="Updates to permanent character modifiers, e.g., {'Rook': 'Stage 2'}")
     rolling_state_update: str = Field(description="The structured bullet-point ROLLING STATE UPDATE")
 
 
@@ -244,6 +245,11 @@ def continuity_extractor(state: NarrativeState) -> dict:
     if getattr(updates_obj, "vig_collection_event", False):
         new_medical_loan_balance += 0.05
 
+    # Apply character modifiers
+    new_character_modifiers = dict(state.get("character_modifiers", {}))
+    if updates_obj.character_modifiers_update:
+        new_character_modifiers.update(updates_obj.character_modifiers_update)
+
     # Write to session log
     session_log = state.get("_session_log")
     beat_index  = state.get("current_beat_index", 0)
@@ -283,12 +289,18 @@ def continuity_extractor(state: NarrativeState) -> dict:
                     "beat": beat_text,
                     "increments": incs
                 })
+        if updates_obj.character_modifiers_update:
+            session_log.record("CHARACTER_MODIFIERS_UPDATE", {
+                "beat": beat_text,
+                "updates": updates_obj.character_modifiers_update
+            })
 
     result = {
         "inventory_log":   new_inventory,
         "supporting_cast": updated_cast,
         "lucidity_counts": new_lucidity,
         "medical_loan_balance": new_medical_loan_balance,
+        "character_modifiers": new_character_modifiers,
         "current_beat_index": beat_index + 1,
         "rolling_state": getattr(updates_obj, "rolling_state_update", "") or state.get("rolling_state", "")
     }

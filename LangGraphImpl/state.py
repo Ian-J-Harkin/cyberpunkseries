@@ -50,6 +50,7 @@ class NarrativeState(TypedDict):
     # Specific Character Mechanics
     lucidity_counts: dict       # Tracks {"empathy": 0, "vault": 0, "schmuck": 0}
     medical_loan_balance: float # Reflects the 20% Dex still owes
+    character_modifiers: dict   # e.g., {"Rook": "Stage 1 - Pre-Accident"}
 
     # Development
     scene_beats: List[str]    # Structural plan for the current chapter

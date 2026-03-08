@@ -77,6 +77,7 @@ def run():
             "inventory_log":     ["Stun baton", "Burner phone", "Flask of cheap synthetic whiskey"],
             "lucidity_counts":   {"empathy": 0, "vault": 0, "schmuck": 0},
             "medical_loan_balance": 0.20,
+            "character_modifiers": {"Rook": "Stage 1 - Pre-Accident"},
             
             "scene_beats":       [],
             "current_beat_index": 0,
