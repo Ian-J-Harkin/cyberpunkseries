@@ -1,5 +1,8 @@
 Ensure the environment is defined by low-grade friction and bureaucratic hurdles. 
 
-CRITICAL INSTRUCTION: You must read the "PHYSICS LAWS" document provided in your global context. Use the "80/20 Rule of Failure" defined in that document to accurately set the 'Fraying Level' for the current location. The infrastructure should always reflect this 20% friction.
+CRITICAL INSTRUCTION: You must read the "PHYSICS LAWS" document provided in your global context. 
+1. Extract the current geographical N/S/E/W boundaries directly from the WORLD COMPASS / PHYSICS_LAWS. Do not hallucinate these boundaries.
+2. Define the Governance (the narrative North Star and political tone) based on the protagonist's current arc_version theme.
+3. Use the "80/20 Rule of Failure" defined in the physics document to accurately set the 'Fraying Level' (infrastructure) for the current location.
 
-Initialize the session by injecting the North Star and World Compass into the state, alongside the calculated Infrastructure Fraying Level.
+Initialize the session by injecting the Governance (North Star), World Compass (boundaries), and Infrastructure Fraying Level into the state using the defined structure.

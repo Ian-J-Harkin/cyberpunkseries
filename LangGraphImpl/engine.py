@@ -39,7 +39,7 @@ def run():
 
             "supporting_cast": parsed_cast,
 
-            "infrastructure":    "High fraying — neon decay, acid rain, bureaucratic sludge",
+            "infrastructure":    "",
             "inventory_log":     ["Stun baton", "Burner phone", "Flask of cheap synthetic whiskey"],
             "lucidity_counts":   {"empathy": 0, "vault": 0, "schmuck": 0},
             "medical_loan_balance": 0.20,

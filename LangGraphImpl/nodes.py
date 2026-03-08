@@ -24,6 +24,11 @@ else:
     )
 
 
+class DNAArchitecture(BaseModel):
+    governance: str = Field(description="The narrative North Star and political tone for the chapter.")
+    boundaries: dict = Field(description="The geographical N/S/E/W boundaries extrapolated from the physics laws.")
+    infrastructure: str = Field(description="The fraying level and condition of the location.")
+
 # ── Node A: DNA Architect ─────────────────────────────────────────────────────
 def dna_architect(state: NarrativeState) -> dict:
     """Injects governance and boundaries into state.
@@ -42,25 +47,29 @@ def dna_architect(state: NarrativeState) -> dict:
         SystemMessage(content=system_prompt),
         HumanMessage(content=f"Initialize the narrative DNA for this session.\n\n{context}")
     ]
-    response = llm.invoke(messages)
+    
+    structured_llm = llm.with_structured_output(DNAArchitecture)
+    response = structured_llm.invoke(messages)
 
-    try:
-        parsed = json.loads(response.content)
+    if response:
         return {
-            "governance":    parsed.get("governance", response.content[:120]),
-            "boundaries":    parsed.get("boundaries", {"north": "TBD", "south": "TBD", "east": "TBD", "west": "TBD"}),
-            "infrastructure": parsed.get("infrastructure", state.get("infrastructure", "Moderate fraying"))
+            "governance": response.governance,
+            "boundaries": response.boundaries,
+            "infrastructure": response.infrastructure
         }
-    except (json.JSONDecodeError, AttributeError):
-        return {
-            "governance": response.content[:120],
-            "boundaries": {"north": "TBD", "south": "TBD", "east": "TBD", "west": "TBD"}
-        }
+    return {
+        "governance": "Default governance (fallback)",
+        "boundaries": {"north": "TBD", "south": "TBD", "east": "TBD", "west": "TBD"},
+        "infrastructure": "Moderate Fraying"
+    }
 
+
+class BeatList(BaseModel):
+    beats: List[str] = Field(default_factory=list, description="The ordered list of scene beats")
 
 # ── Node B: Scene Plotter ─────────────────────────────────────────────────────
 def scene_plotter(state: NarrativeState) -> dict:
-    """Generates 10-15 raw beats — friction enforcement happens in the Auditor."""
+    """Generates granular beats — friction enforcement happens in the Auditor."""
     system_prompt = build_system_prompt("scene_plotter.txt")
 
     protagonist = state.get("protagonist", {})
@@ -74,13 +83,14 @@ def scene_plotter(state: NarrativeState) -> dict:
 
     messages = [
         SystemMessage(content=system_prompt),
-        HumanMessage(content=f"Generate 10-15 scene beats for the current chapter.\n\n{context}")
+        HumanMessage(content=f"Generate the scene beats for the current chapter.\n\n{context}")
     ]
-    response = llm.invoke(messages)
+    
+    structured_llm = llm.with_structured_output(BeatList)
+    response = structured_llm.invoke(messages)
 
-    beats = [b.strip() for b in response.content.split("\n") if b.strip()]
     return {
-        "scene_beats": beats,
+        "scene_beats": response.beats if response else [],
         "current_beat_index": 0
     }
 
