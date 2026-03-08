@@ -1,5 +1,7 @@
 import os
 import json
+from pydantic import BaseModel, Field
+from typing import List, Optional
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -139,12 +141,24 @@ def persona_drafter(state: NarrativeState) -> dict:
     return {"manuscript": updated_manuscript}
 
 
+# ── Continuity Extractor Schemas ──────────────────────────────────────────────
+class TrustUpdate(BaseModel):
+    name: str = Field(description="Name of the supporting cast member")
+    delta: int = Field(description="Change in trust level (-10 to +10)")
+
+class ContinuityUpdates(BaseModel):
+    inventory_additions: List[str] = Field(default_factory=list, description="New items gained in the prose")
+    inventory_removals: List[str] = Field(default_factory=list, description="Items lost or consumed in the prose")
+    trust_updates: List[TrustUpdate] = Field(default_factory=list, description="Trust level changes for NPCs based on interactions")
+    infrastructure_update: Optional[str] = Field(None, description="Updated fraying / infrastructure description, if mentioned")
+
+
 # ── Node D: Continuity Extractor ──────────────────────────────────────────────
 def continuity_extractor(state: NarrativeState) -> dict:
     """Analyzes new prose; updates inventory and cast trust; logs state changes.
     
-    The SessionLog is written here (mirrors n8n Step 5 → database write).
-    The log object is passed in via state['_session_log'] by engine.py.
+    Upgraded to use Pydantic `with_structured_output` for strict JSON enforcement.
+    The SessionLog is written here.
     """
     system_prompt = build_system_prompt("continuity_extractor.txt")
 
@@ -153,11 +167,7 @@ def continuity_extractor(state: NarrativeState) -> dict:
     current_cast    = state.get("supporting_cast", [])
 
     instruction = (
-        "Analyze the latest prose excerpt and return a JSON object with these keys:\n"
-        "  inventory_additions: list of new items gained\n"
-        "  inventory_removals: list of items lost/used\n"
-        "  trust_updates: list of {name, delta} objects for NPCs whose trust changed\n"
-        "  infrastructure_update: updated fraying description string, or null if unchanged\n\n"
+        "Analyze the latest prose excerpt and extract structured continuity updates.\n\n"
         f"Current inventory: {json.dumps(current_inv)}\n"
         f"Current cast: {json.dumps(current_cast)}\n\n"
         f"Latest prose (last 2000 chars):\n{latest_prose[-2000:]}"
@@ -167,34 +177,33 @@ def continuity_extractor(state: NarrativeState) -> dict:
         SystemMessage(content=system_prompt),
         HumanMessage(content=instruction)
     ]
-    response = llm.invoke(messages)
+    
+    # Use LangChain's structured output mechanism
+    structured_llm = llm.with_structured_output(ContinuityUpdates)
+    updates_obj = structured_llm.invoke(messages)
 
-    try:
-        updates = json.loads(response.content)
-    except (json.JSONDecodeError, AttributeError):
-        updates = {}
+    if not updates_obj:
+        updates_obj = ContinuityUpdates()
 
     # Apply inventory changes
     new_inventory = list(current_inv)
-    for item in updates.get("inventory_additions", []):
+    for item in updates_obj.inventory_additions:
         if item not in new_inventory:
             new_inventory.append(item)
-    for item in updates.get("inventory_removals", []):
+    for item in updates_obj.inventory_removals:
         new_inventory = [i for i in new_inventory if i != item]
 
     # Apply trust deltas
     cast_by_name = {c["name"]: dict(c) for c in current_cast}
     trust_changes = {}
-    for entry in updates.get("trust_updates", []):
-        name  = entry.get("name")
-        delta = entry.get("delta", 0)
-        if name in cast_by_name:
-            old = cast_by_name[name].get("trust_level", 50)
-            cast_by_name[name]["trust_level"] = max(0, min(100, old + delta))
-            trust_changes[name] = delta
+    for update in updates_obj.trust_updates:
+        if update.name in cast_by_name:
+            old = cast_by_name[update.name].get("trust_level", 50)
+            cast_by_name[update.name]["trust_level"] = max(0, min(100, old + update.delta))
+            trust_changes[update.name] = update.delta
     updated_cast = list(cast_by_name.values())
 
-    # Write to session log (mirrors n8n → database write)
+    # Write to session log
     session_log = state.get("_session_log")
     beat_index  = state.get("current_beat_index", 0)
     beats       = state.get("scene_beats", [])
@@ -204,18 +213,18 @@ def continuity_extractor(state: NarrativeState) -> dict:
         if new_inventory != current_inv:
             session_log.record("INVENTORY_CHANGE", {
                 "beat": beat_text,
-                "added":   updates.get("inventory_additions", []),
-                "removed": updates.get("inventory_removals", [])
+                "added":   updates_obj.inventory_additions,
+                "removed": updates_obj.inventory_removals
             })
         if trust_changes:
             session_log.record("TRUST_UPDATE", {
                 "beat": beat_text,
                 "changes": trust_changes
             })
-        if updates.get("infrastructure_update"):
+        if updates_obj.infrastructure_update:
             session_log.record("INFRASTRUCTURE_UPDATE", {
                 "beat":  beat_text,
-                "value": updates["infrastructure_update"]
+                "value": updates_obj.infrastructure_update
             })
 
     result = {
@@ -223,8 +232,7 @@ def continuity_extractor(state: NarrativeState) -> dict:
         "supporting_cast": updated_cast,
         "current_beat_index": beat_index + 1
     }
-    infra = updates.get("infrastructure_update")
-    if infra:
-        result["infrastructure"] = infra
+    if updates_obj.infrastructure_update:
+        result["infrastructure"] = updates_obj.infrastructure_update
 
     return result

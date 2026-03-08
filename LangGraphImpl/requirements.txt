@@ -5,3 +5,4 @@ langchain-anthropic
 pydantic
 langgraph-checkpoint-sqlite
 langchain-google-genai
+streamlit
