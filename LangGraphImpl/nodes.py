@@ -136,6 +136,9 @@ def persona_drafter(state: NarrativeState) -> dict:
                 f"- New State Goal: {scene_brief.get('new_state_goal', 'Unknown')}\n"
                 f"- Char Knowledge: {scene_brief.get('character_knowledge', 'Unknown')}\n"
                 f"- Char Emotions: {scene_brief.get('character_emotional_states', 'Unknown')}\n\n"
+                f"World Status:\n"
+                f"- Ad-Man Lucidity Used: {state.get('lucidity_counts', {})}\n"
+                f"- Medical Loan Balance: {state.get('medical_loan_balance', 0.20)}\n\n"
                 f"World Compass (boundaries):\n{compass_context}\n\n"
                 f"Supporting Cast:\n{cast_context}"
             )
@@ -228,12 +231,12 @@ def continuity_extractor(state: NarrativeState) -> dict:
             trust_changes[update.name] = update.delta
     updated_cast = list(cast_by_name.values())
 
-    # Apply lucidity increments
+    # Apply lucidity increments (Capped at exactly 2 max per novel)
     new_lucidity = dict(state.get("lucidity_counts", {"empathy": 0, "vault": 0, "schmuck": 0}))
     if updates_obj.lucidity_increments:
-        new_lucidity["empathy"] += getattr(updates_obj.lucidity_increments, "empathy", 0)
-        new_lucidity["vault"]   += getattr(updates_obj.lucidity_increments, "vault", 0)
-        new_lucidity["schmuck"] += getattr(updates_obj.lucidity_increments, "schmuck", 0)
+        new_lucidity["empathy"] = min(2, new_lucidity["empathy"] + getattr(updates_obj.lucidity_increments, "empathy", 0))
+        new_lucidity["vault"]   = min(2, new_lucidity["vault"] + getattr(updates_obj.lucidity_increments, "vault", 0))
+        new_lucidity["schmuck"] = min(2, new_lucidity["schmuck"] + getattr(updates_obj.lucidity_increments, "schmuck", 0))
 
     # Medical loop balance stays persistent unless intentionally updated by other logic
     # The Vig collection event results in inventory loss instead of debt increase based on new rules

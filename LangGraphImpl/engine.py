@@ -56,6 +56,20 @@ def run():
                     "noticing_rule":      "Ad-Man notices what the protagonist is trying to sell",
                     "physical_anchor":    "Perpetually blinking ad-overlay visor",
                     "trust_level":        30
+                },
+                {
+                    "name":               "Rook",
+                    "internal_frequency": "Weaponizes his burns for intimidation",
+                    "noticing_rule":      "Rook recognizes Dex's fear or weakness",
+                    "physical_anchor":    "Permanently disfigured by electrocution",
+                    "trust_level":        10
+                },
+                {
+                    "name":               "Luce",
+                    "internal_frequency": "The Reasonable Enforcer",
+                    "noticing_rule":      "Luce notices missed payments and contract details",
+                    "physical_anchor":    "Polite bureaucrat of the underworld",
+                    "trust_level":        30
                 }
             ],
 
