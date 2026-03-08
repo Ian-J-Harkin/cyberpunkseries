@@ -5,6 +5,8 @@ The Inconsistent Patronage Law: Castor Vine’s respect for Dex provides no immu
 
 The 80% Debt Law: Financial respect is never 100% clean. Refusing a job from Luce triggers a demand to "cough up a portion of the vig," resulting in mandatory resource loss (deduct 1 item from inventory_log).
 
+The Pivot Probability: There is a 20% "Mercenary Friction" chance where Luce may abandon Dex regardless of prior friendship if the credits are high enough or if directed by Vine.
+
 The Unconfirmed Anxiety Law: Any internal "Lung Rot" symptoms must remain unconfirmed. Blood from a cough must always be traceable to a recent external injury.
 
 WORLD COMPASS
