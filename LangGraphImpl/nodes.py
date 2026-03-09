@@ -5,11 +5,19 @@ from typing import List, Optional
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_anthropic import ChatAnthropic
 from state import NarrativeState
 from context import build_system_prompt
 
 # ── LLM selection ──────────────────────────────────────────────────────────────
-if os.environ.get("GEMINI_API_KEY"):
+if os.environ.get("ANTHROPIC_API_KEY"):
+    llm = ChatAnthropic(
+        model="claude-3-5-sonnet-latest",
+        temperature=0.7,
+        max_tokens=4096,
+        api_key=os.environ.get("ANTHROPIC_API_KEY")
+    )
+elif os.environ.get("GEMINI_API_KEY"):
     llm = ChatGoogleGenerativeAI(
         model="gemini-1.5-pro",
         temperature=0.7,

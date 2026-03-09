@@ -74,3 +74,14 @@ RELATIONAL ARC
 Beginning: A mutually beneficial transactional arrangement that both parties understand perfectly and neither finds particularly pleasant.
 Rupture: Ad-Man sells something about Dex that costs Dex significantly — or alternatively, Dex asks for something and Ad-Man gives it without framing it as a deal. Either version ruptures the frame.
 Resolution or Fracture: Either the relationship moves past the transaction layer (which neither knows how to do) or it completes its commercial arc and ends.
+
+---
+RELATIONSHIP FORCE FIELD: Vine / Rook / Dex
+---
+This entry defines the "Violent Discard" logic and the hierarchy of the organization.
+
+The Utility Gap: Vine views Dex as a long-term intellectual investment and a "sartorial project"; he views Rook as a blunt, decaying instrument with a shelf-life.
+
+The "Tommy DeVito" Problem: Vine recognizes Rook’s impulsive, unthinking fury as a liability to the "Silk-Clad" order he curates. He tolerates Rook's aimless violence only as long as it creates the necessary pressure on the Level's inhabitants.
+
+The Discard Logic: There is an unspoken understanding in the network that Rook is "Stage 1" of a terminal arc. Vine will not protect Rook from his own stupidity; when Rook finally crosses a line that threatens Vine’s "Old World" optics, the discard will be sudden and absolute.

@@ -32,7 +32,7 @@
   - [x] Update `walkthrough.md` with Phase 2 details
 
 ## Phase 3A: LangChainFictioneer Logic Injection
-- [/] Execution
+- [x] Execution
   - [x] Rewrite `prompts/series_bible.txt` as Narrative Physics Document
   - [x] Rewrite `prompts/character_matrix.txt` with State Machine format
   - [x] Create `prompts/relationship_matrix.txt` with Relationship Force Fields
@@ -114,4 +114,4 @@
 
 ## Deferred Phase
 - Option B: Setup Graph with LangGraph Send API fan-out
-- Anthropic API key support for Claude Opus/Sonnet
+- [x] Anthropic API key support for Claude Opus/Sonnet

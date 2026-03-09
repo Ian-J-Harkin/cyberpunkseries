@@ -19,11 +19,39 @@ State Machine: Fluctuates between "Good Months" and "Alarming Physical Decline" 
 
 THE PATRON: CASTOR VINE
 
-Internal Frequency: Charismatic but inconsistent predator. Offers condescending sartorial advice and unexpected charity (donating suits to victims) to offset his sinister side.
-
+MBTI Type: ENFJ ("The Protagonist" - Dark Variant).
+Internal Frequency: "The Dark Mentor." A charismatic but inconsistent predator who uses high emotional intelligence to manipulate and enforce an aesthetic order.
 Physical Anchor: An ancient, non-functional Earthside watch and expensive silk suits with malfunctioning refrigeration units that leave him looking perpetually sweaty.
+Behavioral Palette:
+- Unexpected Charity: Donates suits to his victims and offers condescending sartorial advice to ensure they "fit" his curated vision of the district.
+- Strategic Detachment: Operates under the "Inconsistent Patronage Law"—he may privately respect Dex, but will silently consent to his sub-franchises robbing him if it serves the long-term organizational vision.
 
-THE ENFORCERS: ROOK & LUCE
+
+THE ENFORCER: ROOK — The Disfigured Shadow
+MBTI Type: ESFP ("The Performer" - Unhealthy/Shadow Variant).
+
+Frequency: A muted Tommy DeVito (Goodfellas)—deadly, impulsive, and intellectually limited.
+
+Internal Frequency: "Inferiority-Driven Aggression". An unthinking bully who weaponizes physical dominance to mask a deep-seated sense of inadequacy.
+
+Causality: He is the living consequence of Dex's "cleverness". His vendetta is a permanent narrative fixture, but his own impulsivity makes him a "low-tier" threat that patrons like Castor Vine will eventually discard violently.
+
+Evolution (Stage 1 — Pre-Accident)
+The Vocal Bully: Extremely verbal, taunting, and contemptuous.
+
+The Power Play (The Trigger): He is uniquely insulted by Dex's "Blank Stare" identity trick. He views Dex as a "puny shrimp" trying to stand above his character merit and will narrate exactly what he intends to do to Dex before he starts the beating to savor the visceral terror as a ritual of dominance.
+
+Evolution (Stage 2 — Post-Accident)
+The Silent Engine: After the electrocution in the Level's janky wiring, his vocal cords are ruined. He is now more action, less talk; the aimless, DeVito-esque fury is trapped behind absolute silence.
+
+The Lethality Shift: Because he can no longer taunt or play for the crowd, he is a more lethal, desperate opponent. He no longer provides verbal warnings before striking.
+
+Behavioral Palette
+Intimidation: Weaponizes his permanent burns and disabilities as a deliberate intimidation tactic.
+
+Expendability: Unlike Luce, who is a "businessman," Rook’s inability to control his aimless fury makes him structurally "disposable" to the organization.
+
+THE ENFORCER:  LUCE
 
 LUCE ("LOOSE") — The Good-Natured Thug
 
@@ -41,25 +69,6 @@ The Mercenary Pivot: If the pressure from a sub-franchise or a higher bribe is i
 
 Physical Anchor: Constantly cleaning or "tinkering" with a piece of scuffed, high-grade tech (e.g., his stun-baton "The Equalizer").
 
-ROOK — The Disfigured Shadow
-
-Frequency: High-functioning sociopath / Anton Chigurh or Richard Harrow energy.
-
-Evolution (Stage 1 — Pre-Accident):
-
-The Vocal Bully: Extremely verbal and contemptuous.
-
-The Trigger: He is uniquely insulted by Dex's "Blank Stare" identity trick. He will narrate exactly what he intends to do to Dex before he starts the beating.
-
-Evolution (Stage 2 — Post-Accident):
-
-The Silent Engine: After the electrocution in the Level's janky wiring, his vocal cords are ruined. He is now more action, less talk.
-
-The Lethality Shift: Because he can no longer taunt, he is a more lethal opponent. He no longer provides verbal warnings before striking.
-
-Behavioral Palette: Weaponizes his permanent burns and disabilities as a deliberate intimidation tactic.
-
-Causality: He is the living consequence of Dex's "cleverness." His vendetta is a permanent narrative fixture in the district's mythology.
 
 THE ORACLE: AD-MAN
 

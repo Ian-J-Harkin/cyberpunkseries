@@ -1,0 +1,13 @@
+Architectural Status: Source of Truth (Governance Layer)1. THE NORTH STAR (The Core DNA)The Statement: A "SYFY-style," light-hearted dystopian series set in a "fraying but functional" near-future. The narrative follows Dex, a 7w8 ESTP skip-tracer, who operates in the friction zone between a rigid biometric grid and off-grid subcultures. The series balances the grounded humor of Jim Rockford with the fast-paced, "make this look good" energy of Agent J.The Tonal Boundary: "Warm Neon." Intimate, slightly chaotic, fundamentally human, with a cold, unnameable wrongness at the lunar edges.2. THE WORLD COMPASS (Logical Guardrails)DirectionComponentImplementation Rule for AINORTHThe Primary TensionSystemic Friction. Oppression is bureaucracy, biometric glitches, and social credit hurdles. The grid works 80% of the time; characters live in the 20% gap.SOUTHSpeculative HookThe Lunar Oil-Rig. The moon is an industrial colony of "ex-pats" who return to Earth wealthy but "subtly wrong." This creates class resentment and alienation.EASTHero's KnowledgeStreet Logic. Dex knows brands of synth-coffee, which escalators are broken, and how to find loading-bay jazz clubs. He knows the grid is competent but exhausted.WESTTHE VAULT (Hidden)The "Wrongness" Source. [AI QUARANTINE]: The true reason people return "wrong" from the moon must never be named. Drafting agents must only describe the symptoms, never the cause.
+
+
+3. THE VOICE ANCHOR (Dex / Agent J Persona)
+This section prevents "narrative drift" during drafting.
+
+Narration Style: "Elmore Leonard writing Will Smith."
+
+Sentences: Short and punchy during action; long and observational when Dex is bored or waiting.
+
+The "Unimpressed" Filter: Dex is never intimidated by high technology or "dystopian" scale. He notices the scuffed shoes of a corporate enforcer before he notices the heavy weaponry.
+
+Psychological Snapshot (ESTP 7w8): He moves toward fascination rather than fear. When faced with absurdity, he uses tactical wit to negotiate his way through rather than brooding.

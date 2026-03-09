@@ -14,13 +14,16 @@ st.markdown("Monitor the 5-node AI architecture generating the functional-failin
 # ── Ensure API Keys ────────────────────────────────────────────────────────
 gemini_key = st.sidebar.text_input("GEMINI_API_KEY", type="password", value=os.environ.get("GEMINI_API_KEY", ""))
 router_key = st.sidebar.text_input("OPENROUTER_API_KEY", type="password", value=os.environ.get("OPENROUTER_API_KEY", ""))
+anthropic_key = st.sidebar.text_input("ANTHROPIC_API_KEY", type="password", value=os.environ.get("ANTHROPIC_API_KEY", ""))
 
 if gemini_key:
     os.environ["GEMINI_API_KEY"] = gemini_key
 if router_key:
     os.environ["OPENROUTER_API_KEY"] = router_key
+if anthropic_key:
+    os.environ["ANTHROPIC_API_KEY"] = anthropic_key
 
-if not (gemini_key or router_key):
+if not (gemini_key or router_key or anthropic_key):
     st.warning("Please enter an API key in the sidebar to run the engine.")
     st.stop()
 

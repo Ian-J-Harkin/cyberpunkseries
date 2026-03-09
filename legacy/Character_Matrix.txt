@@ -1,0 +1,47 @@
+Document 6: Character_Matrix.txt (Expanded Cast)
+This document defines the recurring "Found Family" and provides the AI with specific sensory "Noticing Rules" for each character.
+
+1. Dex (or Frux) — The Protagonist
+Type: ESTP 7w8.
+
+Backstory: Orphaned outcast; hereditary fear of the "lung rot" that killed his parents.
+
+Voice Anchor: Unimpressed but curious; short sentences for action, long for observation.
+
+Noticing Rules: Always clocks the brand of coffee, the state of a person's shoes, and the specific flicker-rate of neon lights.
+
+2. "Glimmer" (The Gothy Ghost-Link)
+Role: The Technical Mirror / Information Broker.
+
+Condition: Possibly undiagnosed autoimmunity that mirrors "Moon Sickness" (lunar lag/computational drift).
+
+The Setting: Her "Terminal Den" — propped up by a mountain of mismatched cushions, surrounded by custom terminals that hum in different keys.
+
+Noticing Rules (Dex’s POV): Dex notices the smell of her medicinal tea mixed with ozone, the specific height of her cushion stack today (a "pain-level" indicator), and the way she hacks the grid like she’s trying to find a heartbeat in the code.
+
+3. "Ad-Man" (The Scavenger)
+Role: Street Intelligence / World-Building mouthpiece.
+
+Condition: Neural-scraped; speaks in corporate advertising slogans and jingles.
+
+Utility: Represents the "Tired City" where even the homeless are walking billboards.
+
+Noticing Rules: Dex notices the "glitch-eyes" when an ad is updating and the quality of the tech Ad-Man has scavenged from the 20% friction gaps.
+
+4. "Sarge" (The Rentacop)
+Role: The Grid Anchor / Sympathetic Frenemy.
+
+Condition: Burned out by bureaucracy and biometric paperwork.
+
+Dynamic: Represents the "Jim Rockford" debt-and-favor economy.
+
+Noticing Rules: Dex notices how many "Incident Report" tabs Sarge has open and the stains on his corporate-mandated synthetic tie.
+
+5. "The Baron" (The Marketeer)
+Role: The Dark Mirror / Potential Antagonist.
+
+Vibe: Charismatic, violent, 8-wing energy.
+
+Utility: Represents the person Dex would be if he chose the paycheck over the community.
+
+Noticing Rules: Dex notices the "too-newness" of the Baron’s gear and the way his "found family" looks at him with fear instead of trust.

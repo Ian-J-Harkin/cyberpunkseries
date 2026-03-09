@@ -104,7 +104,7 @@ def run():
 
         except Exception as e:
             print(f"\n✗ Execution failed: {e}")
-            print("  Set OPENROUTER_API_KEY or GEMINI_API_KEY and try again.")
+            print("  Set ANTHROPIC_API_KEY, OPENROUTER_API_KEY, or GEMINI_API_KEY and try again.")
 
 if __name__ == "__main__":
     run()

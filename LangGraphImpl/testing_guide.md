@@ -7,7 +7,7 @@ This document outlines how to test the two core Narrative Physics rule sets we j
 ## Prerequisites
 Before running these tests, ensure:
 1. Your terminal is open to `c:\Github\AI_Fiction\cyberpunkseries\LangGraphImpl`.
-2. You have a valid `GEMINI_API_KEY` or `OPENROUTER_API_KEY` exported in your environment.
+2. You have a valid `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, or `OPENROUTER_API_KEY` exported in your environment.
 3. You run the engine via:
    ```bash
    python engine.py
