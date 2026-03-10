@@ -11,7 +11,7 @@ from state import NarrativeState
 from context import build_system_prompt
 
 # ── LLM selection ──────────────────────────────────────────────────────────────
-os.environ["GEMINI_API_KEY"] = "AIzaSyDlIxZxMPtFL_KPIENZ8srWtPAF7h4bSOk"
+
 
 if os.environ.get("ANTHROPIC_API_KEY"):
     llm = ChatAnthropic(
