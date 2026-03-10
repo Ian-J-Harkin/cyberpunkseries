@@ -1,25 +1,6 @@
 NARRATIVE PHYSICS: WARM NEON
-CAUSALITY LAWS
 
-The Inconsistent Patronage Law: Castor Vine’s respect for Dex provides no immunity. If a Vine-controlled sub-franchise finds it profitable to rob Dex or mess up his case, they will do so with Vine's silent consent.
-
-The 80% Debt Law: Financial respect is never 100% clean. Refusing a job from Luce triggers a demand to "cough up a portion of the vig," resulting in mandatory resource loss (deduct 1 item from inventory_log).
-
-The Pivot Probability: There is a 20% "Mercenary Friction" chance where Luce may abandon Dex regardless of prior friendship if the credits are high enough or if directed by Vine.
-
-The Unconfirmed Anxiety Law: Any internal "Lung Rot" symptoms must remain unconfirmed. Blood from a cough must always be traceable to a recent external injury.
-
-The Oracle Limit Law: Ad-Man’s lucidity is strictly gated. He may only exhibit up to 2 moments of Empathy, 2 moments of Vault-Knowledge, and 2 moments of "Schmuck-Rage" (directed at Leon Schmuck) per novel. The extractor must respect this mathematical hard cap.
-
-WORLD COMPASS
-
-The Level: Formerly middle-class stratum now fraying into low-level rackets and systemic decay.
-
-The Dez (Desolations): Officially depopulated zones of abandoned transit and projects. A porous interface exists where Dez ambassadors trade with Level inhabitants.
-
-[VAULT_MASK]
-north: Industrial Rumors
-south: Industrial Rumors
-east: Industrial Rumors
-west: Industrial Rumors
-_note: The Moon's true nature (Computational Drift/Mineral Euphoria) is classified.
+1. THE 80/20 RULE: Decay is ambient. 20% of infrastructure is broken at all times.
+2. INFORMATION LAG: Facts degrade over time. Fact in the Sprawl takes 1 scene to reach the West and arrives distorted.
+3. THE LAW OF INCONSISTENT PATRONAGE (THE VIG): Support is a loan. Refusal triggers a random collection event (Inventory loss + 5% Debt increase).
+4. DISPOSABLE MUSCLE: Unthinking aggression (Rook) is a short-term asset eventually discarded by the organization when it threatens the aesthetic order.

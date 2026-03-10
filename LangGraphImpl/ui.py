@@ -12,6 +12,7 @@ st.title("Warm Neon Narrative Engine")
 st.markdown("Monitor the 5-node AI architecture generating the functional-failing cyberpunk narrative.")
 
 # ── Ensure API Keys ────────────────────────────────────────────────────────
+os.environ["GEMINI_API_KEY"] = "AIzaSyDlIxZxMPtFL_KPIENZ8srWtPAF7h4bSOk"
 gemini_key = st.sidebar.text_input("GEMINI_API_KEY", type="password", value=os.environ.get("GEMINI_API_KEY", ""))
 router_key = st.sidebar.text_input("OPENROUTER_API_KEY", type="password", value=os.environ.get("OPENROUTER_API_KEY", ""))
 anthropic_key = st.sidebar.text_input("ANTHROPIC_API_KEY", type="password", value=os.environ.get("ANTHROPIC_API_KEY", ""))

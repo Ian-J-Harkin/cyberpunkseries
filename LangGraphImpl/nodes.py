@@ -1,5 +1,6 @@
 import os
 import json
+import time
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from langchain_core.messages import SystemMessage, HumanMessage
@@ -10,6 +11,8 @@ from state import NarrativeState
 from context import build_system_prompt
 
 # ── LLM selection ──────────────────────────────────────────────────────────────
+os.environ["GEMINI_API_KEY"] = "AIzaSyDlIxZxMPtFL_KPIENZ8srWtPAF7h4bSOk"
+
 if os.environ.get("ANTHROPIC_API_KEY"):
     llm = ChatAnthropic(
         model="claude-3-5-sonnet-latest",
@@ -19,7 +22,7 @@ if os.environ.get("ANTHROPIC_API_KEY"):
     )
 elif os.environ.get("GEMINI_API_KEY"):
     llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-pro",
+        model="gemini-2.5-flash",
         temperature=0.7,
         google_api_key=os.environ.get("GEMINI_API_KEY")
     )
@@ -78,6 +81,7 @@ class BeatList(BaseModel):
 # ── Node B: Scene Plotter ─────────────────────────────────────────────────────
 def scene_plotter(state: NarrativeState) -> dict:
     """Generates granular beats — friction enforcement happens in the Auditor."""
+    time.sleep(15)
     system_prompt = build_system_prompt("scene_plotter.txt")
 
     protagonist = state.get("protagonist", {})
@@ -113,6 +117,7 @@ def friction_auditor(state: NarrativeState) -> dict:
     - Vocabulary Quarantine
     Marks modified beats with [AUDITED] so the drafter knows what changed.
     """
+    time.sleep(15)
     system_prompt = build_system_prompt("friction_auditor.txt")
 
     raw_beats = state.get("scene_beats", [])
@@ -133,6 +138,7 @@ def friction_auditor(state: NarrativeState) -> dict:
 # masked at graph level (_masked_drafter in graph.py) before this is called.
 def persona_drafter(state: NarrativeState) -> dict:
     """Drafts prose from the current (audited) beat using Voice Anchor rules."""
+    time.sleep(15)
     system_prompt = build_system_prompt("persona_drafter.txt")
 
     beats = state.get("scene_beats", [])
@@ -199,6 +205,7 @@ def continuity_extractor(state: NarrativeState) -> dict:
     Upgraded to use Pydantic `with_structured_output` for strict JSON enforcement.
     The SessionLog is written here.
     """
+    time.sleep(15)
     system_prompt = build_system_prompt("continuity_extractor.txt")
 
     latest_prose    = state.get("manuscript", "")

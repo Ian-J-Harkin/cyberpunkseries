@@ -67,14 +67,14 @@ def run():
             "_session_log": session_log
         }
 
-        print("═" * 60)
+        print("=" * 60)
         print(f"  Warm Neon Engine  |  Session: {session_id}")
-        print("═" * 60)
+        print("=" * 60)
 
         try:
             for event in graph.stream(initial_state, config):
                 for node, state_update in event.items():
-                    print(f"\n▸ {node}")
+                    print(f"\n> {node}")
 
                     if "governance" in state_update:
                         print(f"  Governance: {state_update['governance'][:80]}...")
@@ -97,13 +97,15 @@ def run():
                         for c in state_update["supporting_cast"]:
                             print(f"  Cast — {c['name']}: trust={c['trust_level']}")
 
-            print("\n" + "═" * 60)
+            print("\n" + "=" * 60)
             print("  Session Complete")
-            print("═" * 60)
+            print("=" * 60)
             print(session_log.summary())
 
         except Exception as e:
-            print(f"\n✗ Execution failed: {e}")
+            import traceback
+            print(f"\n[Error] Execution failed: {e}")
+            traceback.print_exc()
             print("  Set ANTHROPIC_API_KEY, OPENROUTER_API_KEY, or GEMINI_API_KEY and try again.")
 
 if __name__ == "__main__":
